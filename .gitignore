@@ -1,0 +1,14 @@
+.vscode
+
+# LPC / MudOS save_binary 与各类运行时生成的 .o
+*.o
+
+# 服务端运行时日志与统计（仓库根目录下）
+/log/
+
+# 备份与系统杂项
+*.bak
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
