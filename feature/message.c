@@ -290,6 +290,12 @@ void clear_written()
         written = COMMAND_RCVD;
 }
 
+/* force_me() 末尾会 write_prompt() 置 PROMPT_WRITTEN，此后 tell 会带清行+拼 prompt，多行房间描述常被终端/前端吃成只剩短名 */
+void reset_written_state()
+{
+        written = NONE;
+}
+
 void clear_msg_buffer()
 {
         msg_buffer = allocate(0);

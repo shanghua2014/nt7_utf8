@@ -18,24 +18,24 @@ void create()
     "高丽勇士一晒：据说谁杀了我会得到什么称号，我看这样的人还没出生呢！\n",
     }));
   setup();
-  
+
 }
 
 void die()
 {
    object ob;
-   
+
    ob=query_temp("last_damage_from");
-   
+
    if(!ob) return ::die();
    if(!userp(ob)) return ::die();
-   
+
    if(random(100)>95){
      CHANNEL_D->do_channel(this_object(),"rumor",ob->name()+"杀死高丽勇士，获得了"+
-      "「高丽王者」的称号！\n");
-     ob->set_temp("rank/class","高丽王者");
+      "「高丽雪海」的称号！\n");
+     ob->set_temp("rank/class","高丽雪海");
    }
-   
+
    return ::die();
-   
+
 }

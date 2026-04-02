@@ -9,7 +9,7 @@ void create()
         set("short", "英雄商店");
         set("long", @LONG
 这里是英雄商店，没有店铺的玩家可以在这里寄售物品，价格以
-王者金币(NT)作为单位，店里挂着一个醒目的牌子(paizi)。
+雪海金币(NT)作为单位，店里挂着一个醒目的牌子(paizi)。
 LONG );
         set("region", "yangzhou");
         set("exits", ([
@@ -65,4 +65,3 @@ int do_buy(string arg)
         write(SALE_D->do_buy(this_player(), arg));
         return 1;
 }
-

@@ -172,11 +172,9 @@ varargs int move(mixed dest, int raw)
             !raw ) {
                 // look before move, because the init may be kick me
                 // to ...
-
-                if( !query("env/brief") && time() - query_temp("last_go_time") < 2 )
-                        LOOK_CMD->look_room(me, ob, 3);
-                else
-                        LOOK_CMD->look_room(me, ob, query("env/brief"));
+                // 仅用 env/brief；勿在短时间二次移动时用 brief=3，否则 look.c 不输出 long()
+                /* direct_receive：receive_message("telnet")，不经 written/[256D[K 改写，避免 Web 端只先出标题行、需回车才出 long */
+                LOOK_CMD->look_room(me, ob, query("env/brief"), 1);
 
                 set_temp("last_go_time", time());
         }

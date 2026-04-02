@@ -126,7 +126,7 @@
 消戾丹:xiaolidan:5:pill:/clone/goods/xiaolidan:用于消除戾气的丹药
 消慧丹:xiaohuidan:25:pill:/clone/fam/gift/cint:用于降低int
 化骨丹:huagudan:25:pill:/clone/fam/gift/ccon:用于降低con
-落凤丹:luofengdan:25:pill:/clone/fam/gift/cdex:用于降低dex   
+落凤丹:luofengdan:25:pill:/clone/fam/gift/cdex:用于降低dex
 阴虚丹:yinxudan:25:pill:/clone/fam/gift/cstr:用于降低str
 双倍奖励3小时:srv01:1:srv:/clone/goods/service:增加3小时的双倍奖励时间
 双倍奖励1周时:srv02:50:srv:/clone/goods/service:增加1周时的双倍奖励时间
@@ -142,45 +142,45 @@
 九龙神火炉:jiulonglu:200:object:/clone/goods/jiulonglu:炼药师用来炼制丹药的顶级神器
 辟谷符:bigufu:50:object:/clone/goods/bigu-fu:带在身上可以停止日常消耗食物饮水,非消耗品
 册马石:cemashi:20:object:/clone/goods/cemashi:可使你增加一条骑马记录点
-王者之心:wangzhe:50:object:/clone/goods/wangzhe-zhixin:用来绿化套装的必需物品
+雪海之晶:wangzhe:50:object:/clone/goods/wangzhe-zhixin:用来绿化套装的必需物品
 血之禁忌:blood:50:object:/clone/goods/blood-taboo:用来解除你与魔幻兽之间签订的血之盟约
 分解卷轴:resolve:1:object:/clone/goods/resolve-scroll:用来分解动态装备属性成元素粉末
 锻造石:forging:1:object:/clone/goods/forging-stone:一块拥有神秘魔力的锻造石，和装备一起锻造可升级装备。
 轮回·重生:lunhuics:118:enchase:/clone/fam/enchase/lunhui-chongsheng:可镶嵌在装备上,详细参考help enchase
 泥潭之星:ntzhixing:128:enchase:/clone/fam/enchase/yanhuang-zhixing:可镶嵌在装备上,详细参考help enchase
-龙女之泪:longnv:128:enchase:/clone/fam/enchase/longnv-zhilei:可镶嵌在装备上,详细参考help enchase                                               
-泥潭·君临天下:tianxia2:128:enchase:/clone/fam/enchase/yanhuang-tianxia2:可镶嵌在装备上,详细参考help enchase                                           
-泥潭·国色天香:guose2:128:enchase:/clone/fam/enchase/yanhuang-guose2:可镶嵌在装备上,详细参考help enchase                                                
-泥潭·战神:zhanshen2:128:enchase:/clone/fam/enchase/yanhuang-zhanshen2:可镶嵌在装备上,详细参考help enchase                                                   
-龙女·碧海神龙:bihai2:128:enchase:/clone/fam/enchase/longnv-bihai2:可镶嵌在装备上,详细参考help enchase	 
-龙女·曙光:shuguang2:128:enchase:/clone/fam/enchase/longnv-shuguang2:可镶嵌在装备上,详细参考help enchase		                                               
-龙女·蚀:shi2:128:enchase:/clone/fam/enchase/longnv-shi2:可镶嵌在装备上,详细参考help enchase        
-蓝宝石:lanbaoshi2:128:enchase:/clone/fam/enchase/lan-baoshi2:可镶嵌在装备上,详细参考help enchase	           
-红宝石:hongbaoshi2:128:enchase:/clone/fam/enchase/hong-baoshi2:可镶嵌在装备上,详细参考help enchase                                                        
-圣龙之眼:zhiyan2:128:enchase:/clone/fam/enchase/shenglong-zhiyan2:可镶嵌在装备上,详细参考help enchase                                                
-圣龙之魂:zhihun2:128:enchase:/clone/fam/enchase/shenglong-zhihun2:可镶嵌在装备上,详细参考help enchase         
-神龙梦幻:menghuan2:128:enchase:/clone/fam/enchase/shenlong-menghuan2:可镶嵌在装备上,详细参考help enchase	          
-神龙无边:wubian2:128:enchase:/clone/fam/enchase/shenlong-wubian2:可镶嵌在装备上,详细参考help enchase	          
-妖灵·魂:hun2:128:enchase:/clone/fam/enchase/yaoling-hun2:可镶嵌在装备上,详细参考help enchase                                                       
-妖灵·魄:po2:128:enchase:/clone/fam/enchase/yaoling-po2:可镶嵌在装备上,详细参考help enchase          
-虎牙:huya2:128:enchase:/clone/fam/enchase/huya2:可镶嵌在装备上,详细参考help enchase          
-鹰眼:yingyan2:128:enchase:/clone/fam/enchase/yingyan2:可镶嵌在装备上,详细参考help enchase          
-雪精灵:jingling2:128:enchase:/clone/fam/enchase/xue-jingling2:可镶嵌在装备上,详细参考help enchase          
-碧水融华:ronghua2:128:enchase:/clone/fam/enchase/bishui-ronghua2:可镶嵌在装备上,详细参考help enchase                                                       
+龙女之泪:longnv:128:enchase:/clone/fam/enchase/longnv-zhilei:可镶嵌在装备上,详细参考help enchase
+泥潭·君临天下:tianxia2:128:enchase:/clone/fam/enchase/yanhuang-tianxia2:可镶嵌在装备上,详细参考help enchase
+泥潭·国色天香:guose2:128:enchase:/clone/fam/enchase/yanhuang-guose2:可镶嵌在装备上,详细参考help enchase
+泥潭·战神:zhanshen2:128:enchase:/clone/fam/enchase/yanhuang-zhanshen2:可镶嵌在装备上,详细参考help enchase
+龙女·碧海神龙:bihai2:128:enchase:/clone/fam/enchase/longnv-bihai2:可镶嵌在装备上,详细参考help enchase
+龙女·曙光:shuguang2:128:enchase:/clone/fam/enchase/longnv-shuguang2:可镶嵌在装备上,详细参考help enchase
+龙女·蚀:shi2:128:enchase:/clone/fam/enchase/longnv-shi2:可镶嵌在装备上,详细参考help enchase
+蓝宝石:lanbaoshi2:128:enchase:/clone/fam/enchase/lan-baoshi2:可镶嵌在装备上,详细参考help enchase
+红宝石:hongbaoshi2:128:enchase:/clone/fam/enchase/hong-baoshi2:可镶嵌在装备上,详细参考help enchase
+圣龙之眼:zhiyan2:128:enchase:/clone/fam/enchase/shenglong-zhiyan2:可镶嵌在装备上,详细参考help enchase
+圣龙之魂:zhihun2:128:enchase:/clone/fam/enchase/shenglong-zhihun2:可镶嵌在装备上,详细参考help enchase
+神龙梦幻:menghuan2:128:enchase:/clone/fam/enchase/shenlong-menghuan2:可镶嵌在装备上,详细参考help enchase
+神龙无边:wubian2:128:enchase:/clone/fam/enchase/shenlong-wubian2:可镶嵌在装备上,详细参考help enchase
+妖灵·魂:hun2:128:enchase:/clone/fam/enchase/yaoling-hun2:可镶嵌在装备上,详细参考help enchase
+妖灵·魄:po2:128:enchase:/clone/fam/enchase/yaoling-po2:可镶嵌在装备上,详细参考help enchase
+虎牙:huya2:128:enchase:/clone/fam/enchase/huya2:可镶嵌在装备上,详细参考help enchase
+鹰眼:yingyan2:128:enchase:/clone/fam/enchase/yingyan2:可镶嵌在装备上,详细参考help enchase
+雪精灵:jingling2:128:enchase:/clone/fam/enchase/xue-jingling2:可镶嵌在装备上,详细参考help enchase
+碧水融华:ronghua2:128:enchase:/clone/fam/enchase/bishui-ronghua2:可镶嵌在装备上,详细参考help enchase
 黑水晶:shuijing2:288:enchase:/clone/fam/enchase/hei-shuijing2:可镶嵌在装备上,详细参考help enchase
 紫霹雳:pili2:288:enchase:/clone/fam/enchase/zi-pili2:可镶嵌在装备上,详细参考help enchase
 猫妖石:maoyao2:168:enchase:/clone/fam/enchase/maoyao-shi2:可镶嵌在装备上,详细参考help enchase
 孔雀石:kongque2:168:enchase:/clone/fam/enchase/kongque-shi2:可镶嵌在装备上,详细参考help enchase
 赤炼龙胆:longdan2:168:enchase:/clone/fam/enchase/chilian-longdan2:可镶嵌在装备上,详细参考help enchase
-真武宝石:zhenwu2:168:enchase:/clone/fam/enchase/zhenwu-baoshi2:可镶嵌在装备上,详细参考help enchase          
+真武宝石:zhenwu2:168:enchase:/clone/fam/enchase/zhenwu-baoshi2:可镶嵌在装备上,详细参考help enchase
 碧海残镢:canjue2:128:enchase:/clone/fam/enchase/bihai-canjue2:可镶嵌在装备上,详细参考help enchase
-麒麟火:huo2:128:enchase:/clone/fam/enchase/qilin-huo2:可镶嵌在装备上,详细参考help enchase         
-帝王之心:diwang2:128:enchase:/clone/fam/enchase/diwang-zhixin2:可镶嵌在装备上,详细参考help enchase          
+麒麟火:huo2:128:enchase:/clone/fam/enchase/qilin-huo2:可镶嵌在装备上,详细参考help enchase
+帝王之心:diwang2:128:enchase:/clone/fam/enchase/diwang-zhixin2:可镶嵌在装备上,详细参考help enchase
 幕天石:mutian2:188:enchase:/clone/fam/enchase/mutian-shi2:可镶嵌在装备上,详细参考help enchase
 龙凰紫珠:zhizhu2:188:enchase:/clone/fam/enchase/longhuang-zhizhu2:可镶嵌在装备上,详细参考help enchase
-古松残镢:gusong2:188:enchase:/clone/fam/enchase/gusong-canjue2:可镶嵌在装备上,详细参考help enchase	  	  	  	  
-流星赶月:ganyue2:288:enchase:/clone/fam/enchase/liuxing-ganyue2:可镶嵌在装备上,详细参考help enchase	
-九天玲珑珠:jiutian2:288:enchase:/clone/fam/enchase/jiutian-linglongzhu2:可镶嵌在装备上,详细参考help enchase		    
+古松残镢:gusong2:188:enchase:/clone/fam/enchase/gusong-canjue2:可镶嵌在装备上,详细参考help enchase
+流星赶月:ganyue2:288:enchase:/clone/fam/enchase/liuxing-ganyue2:可镶嵌在装备上,详细参考help enchase
+九天玲珑珠:jiutian2:288:enchase:/clone/fam/enchase/jiutian-linglongzhu2:可镶嵌在装备上,详细参考help enchase
 海蓝石:hailanshi2:228:enchase:/clone/fam/enchase/hailan-shi:可镶嵌在装备上,详细参考help enchase
 红眼恶魔:hongyan2:228:enchase:/clone/fam/enchase/hongyan-emo:可镶嵌在装备上,详细参考help enchase
 邪帝舍利:xiedi2:228:enchase:/clone/fam/enchase/xiedi-sheli:可镶嵌在装备上,详细参考help enchase
@@ -190,11 +190,11 @@
 百炼寒精:hanjing2:228:enchase:/clone/fam/enchase/bailian-hanjing2:可镶嵌在装备上,详细参考help enchase
 妖灵之翼:yaoling2:228:enchase:/clone/fam/enchase/yaoling-zhiyi2:可镶嵌在装备上,详细参考help enchase
 七彩神珠:shenzhu2:228:enchase:/clone/fam/enchase/qicai-shenzhu:可镶嵌在装备上,详细参考help enchase
-无名古玉:guyu2:88:enchase:/clone/fam/enchase/wuming-guyu:可镶嵌在装备上,详细参考help enchase 
-露华之晶:luhua2:688:enchase:/clone/fam/enchase/luhua-zhijing:可镶嵌在装备上,详细参考help enchase 
+无名古玉:guyu2:88:enchase:/clone/fam/enchase/wuming-guyu:可镶嵌在装备上,详细参考help enchase
+露华之晶:luhua2:688:enchase:/clone/fam/enchase/luhua-zhijing:可镶嵌在装备上,详细参考help enchase
 麒麟之魂:qilin2:128:enchase:/clone/fam/enchase/qilin-zhihun:可镶嵌在装备上,详细参考help enchase
 人书宝灵:baoling:128:enchase:/clone/fam/enchase/renshu-baoling:可镶嵌在装备上,详细参考help enchase
 镇魂之精:zhenhun:228:enchase:/clone/fam/enchase/zhenhun-zhijing:可镶嵌在装备上,详细参考help enchase
-地书宝灵:dishu:228:enchase:/clone/fam/enchase/dishu-baoling:可镶嵌在装备上,详细参考help enchase      
+地书宝灵:dishu:228:enchase:/clone/fam/enchase/dishu-baoling:可镶嵌在装备上,详细参考help enchase
 地灵石:dilingshi:328:enchase:/clone/fam/enchase/diling-shi:可镶嵌在装备上,详细参考help enchase
-天书宝灵:tianshu:388:enchase:/clone/fam/enchase/tianshu-baoling:可镶嵌在装备上,详细参考help enchase   
+天书宝灵:tianshu:388:enchase:/clone/fam/enchase/tianshu-baoling:可镶嵌在装备上,详细参考help enchase

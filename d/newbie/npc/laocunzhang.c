@@ -1,5 +1,9 @@
 #include <ansi.h>
 
+/* 帮助类指令：黄底红字（REDYEL），随后接 HIM 段落或仅 NOR 收尾 */
+#define HLP_HIM(s)      (REDYEL + (s) + NOR + HIM)
+#define HLP_NOR(s)      (REDYEL + (s) + NOR)
+
 inherit NPC;
 
 mixed ask_here();         //导航系统入口
@@ -146,7 +150,7 @@ mixed ask_zhiliao()
         msg = HIC "老村长看了看你道：好吧！就让我来给你治疗吧！\n" NOR;
         msg+= HIY "老村长默念口诀，然后用手在你身上一点，顿时一到金光将你笼罩 ……\n" NOR;
         msg+= HIG "你感觉全身舒畅之极！你的状态恢复满了！\n\n" NOR;
-        
+
         set("jing",query("max_jing",  me), me);
         set("eff_jing",query("max_jing",  me), me);
         set("jingli",query("max_jingli",  me), me);
@@ -222,16 +226,16 @@ mixed ask_ok()
         if (n_quest["leixing"] == "baishi")
                 if( query("family/master_id", me) == "wu bo" )
                         n_quest["completed"] = 1;
-        
+
         if (n_quest["completed"])
         {
                 exp=query("newbie_quest/point", me)*5+random(10);
                 qn = exp / 2 + random(exp / 2);
                 score=query("newbie_quest/point", me);
 
-                msg = HIG "老村长点头微笑道：不错！不错！看来你已经掌握了 " + HIY + 
+                msg = HIG "老村长点头微笑道：不错！不错！看来你已经掌握了 " + HIY +
                           query("newbie_quest/quest_name", me)+HIG"的方法了！\n"NOR;
-                msg+= HIC "你完成了老村长交给你的练习任务， 获得了「" + chinese_number(exp) + 
+                msg+= HIC "你完成了老村长交给你的练习任务， 获得了「" + chinese_number(exp) +
                       "点实战经验和" + chinese_number(qn) + "点潜能以及" + chinese_number(score) + "点"
                       "江湖阅历」。\n" HIW "能力得到了提升！\n\n" NOR;
 
@@ -265,7 +269,7 @@ int accept_object(object me, object ob)
 
 // 接受询问，可回答相关问题，且可分派任务
 // me代表this_player()
-mixed accept_ask(object me, string topic) 
+mixed accept_ask(object me, string topic)
 {
         mixed n_quest;
         string msg;
@@ -274,7 +278,7 @@ mixed accept_ask(object me, string topic)
 
         if( topic == "all" )
         {
-                "/cmds/std/ask.c"->query_inquiry(me, this_object()); 
+                "/cmds/std/ask.c"->query_inquiry(me, this_object());
                 return 1;
         }
         // 检查是否是任务状态
@@ -283,7 +287,7 @@ mixed accept_ask(object me, string topic)
                    tell_object(me, HIR "老村长对你说道：" + n_quest["msg"] + "\n如果已经练习请ask lao about ok\n" NOR);
                     return 1;
         }
-        
+
         if (topic == "1") // 什么是文字MUD游戏
         {
                  msg = HIW + "\n"
@@ -318,8 +322,8 @@ mixed accept_ask(object me, string topic)
 "刺客，从此过着隐姓埋名，浪迹天涯的生活 ……\n\n"
 "    这就是文字MUD虚拟世界，赶快将融入到这个世界中来吧，它会带给你无穷\n"
 "无尽的欢乐和微笑，让你忘却尘世中的无奈与悲愁 ……\n\n" HIR
-"                                              泥潭Ⅴ之王者归来 欢迎您\n\n" NOR;
-      
+"                                              泥潭Ⅴ之雪海顠香 欢迎您\n\n" NOR;
+
         } else
         if (topic == "2") // 单介绍一下这个游戏的玩法
         {                 msg = HIW + "\n"
@@ -331,7 +335,7 @@ mixed accept_ask(object me, string topic)
 "导下，了解和掌握如何进行这个游戏。同时，在你向新手导师学习的过程中你可\n"
 "以通过完成一些新手导师交给你的简单任务获取一定的经验点和相关奖励，更重\n"
 "要的是，在古村的「武伯」（在练武场）处你还可以学到几种武功技能，这将对\n"
-"你日后的发展和行走江湖有很大的帮助。\n\n" HIY + 
+"你日后的发展和行走江湖有很大的帮助。\n\n" HIY +
 "    当在古村历练完或不愿历练，你可请求导师「老村长」允许你出村，" HIM "一旦老\n"
 "村长觉得你历练合格后将准许你离开古村进入江湖闯荡。大家注意了，在古村里\n"
 "一切都有导师老村长的照顾，生病啊、受伤啊、饥饿啊什么都可以免费找他，而\n"
@@ -342,7 +346,7 @@ mixed accept_ask(object me, string topic)
 "拜哪个门派学哪门武艺全凭个人的喜好。\n\n" HIY +
 "    当你进入门派后，你就是真正江湖中的人了，以后的路如何走就得靠你自己\n"
 "去抉择。" HIM "本游戏为每个玩家提供了多元化的发展空间，有多种职业方向供你们去\n"
-"选择，这以后你们就得学会多看help帮助文件（输入指令help），多和其他玩家\n"
+"选择，这以后你们就得学会多看" + HLP_HIM("help") + "帮助文件（输入指令" + HLP_HIM("help") + "），多和其他玩家\n"
 "交流，多开动你们的脑筋，你完全可以把这里想象成一个虚拟的现实世界，把自\n"
 "己的才智充分的在这里发挥出来 ……\n\n" HIR
 "    需要着重说明的是，你的一切行为都是通过指令来控制的，指令有以下几部\n"
@@ -356,7 +360,7 @@ mixed accept_ask(object me, string topic)
 "                 要吃馒头(man tou)应该输入指令：\n"
 "                 eat man tou ，而不是输入指令 eat 馒头。\n" HIM
 "    3、" HIG "参  数：" HIM "  比如直接输入指令 hp 可显示你当前的状态， 而再加上一个\n"
-"                 参数 -g 的话则可显示你的先天属性，即输入指令 hp -g 。\n\n" 
+"                 参数 -g 的话则可显示你的先天属性，即输入指令 hp -g 。\n\n"
 "    具体的细节可通过 " HIY "ask lao about 信息编号" HIM " 来进一步了解。\n\n" HIM
 "    好了，现在就赶快开始你的人生旅程吧，祝君多珍重！\n\n" HIR
 "                                                     泥潭巫师组 欢迎您\n\n" NOR;
@@ -496,7 +500,7 @@ mixed accept_ask(object me, string topic)
                 msg = HIM "等你在这里历练合格（输入指令 " HIY "ask lao about 出村" HIM "）后，可到『古村』村口\n"
                       "去找" HIG "花伯" HIM "（输入指令 " HIY "ask hua about 出村" HIM "）。\n" NOR;
 
-        } 
+        }
         // ==================================================================================
         // 从 4 开始的二级分类
         // ==================================================================================
@@ -511,7 +515,7 @@ mixed accept_ask(object me, string topic)
         {
                 msg = HIM "\n你可以输入指令 " + BLINK + HIY + "score" + NOR + HIM " 来查看你自己的基本资料。\n" NOR;
                 msg += HIR "赶快试试这个指令吧！\n\n" NOR;
-                
+
                 msg += HIM "关于<score指令所显示的基本资料>有以下相关信息：\n" NOR;
                 msg += HIY "编号         信    息\n" NOR;
                 msg += HIY "------------------------------------------\n" NOR;
@@ -530,7 +534,7 @@ mixed accept_ask(object me, string topic)
         {
                 msg = HIM "\n你可以输入指令 " + BLINK + HIY + "hp" + NOR + HIM " 来查看你自己当前的状态。\n" NOR;
                 msg += HIR "赶快试试这个指令吧！\n\n" NOR;
-                
+
                 msg += HIM "关于<hp指令所显示的数据>有以下相关信息：\n" NOR;
                 msg += HIY "编号         信    息\n" NOR;
                 msg += HIY "------------------------------------------\n" NOR;
@@ -539,7 +543,7 @@ mixed accept_ask(object me, string topic)
                            "433       气血的作用\n"
                            "434       内力的作用\n"
                            "435       食物与饮水有什么作用\n"
-                           "436       潜能的作用\n" 
+                           "436       潜能的作用\n"
                            "437       体会的作用\n" NOR;
                 msg += HIY "------------------------------------------\n" NOR;
                 msg += HIR "要了解的信息可以输入指令 ask lao about <编号>\n" NOR;
@@ -551,7 +555,7 @@ mixed accept_ask(object me, string topic)
         {
                 msg = HIM "\n你可以输入指令 " + BLINK + HIY + "hp -g" + NOR + HIM " 来查看你自己当前的状态。\n" NOR;
                 msg += HIR "赶快试试这个指令吧！\n\n" NOR;
-                
+
                 msg += HIM "关于<hp -g 指令所显示的数据>有以下相关信息：\n" NOR;
                 msg += HIY "编号         信    息\n" NOR;
                 msg += HIY "------------------------------------------\n" NOR;
@@ -605,7 +609,7 @@ mixed accept_ask(object me, string topic)
                 msg = HIW + "\n"
 "老村长对你说道：那就让我来告诉你有关实战经验的信息吧：\n"
 "-----------------------------------------------------\n" HIM +
-"    简单来说，实战经验有以下几点作用：\n\n" HIY + 
+"    简单来说，实战经验有以下几点作用：\n\n" HIY +
 "一、影响你在战斗中的攻击命中率及伤害点数。\n"
 "二、限制你的技能等级，你的技能等级换算公式如下：\n" HIR
 "    实战经验 >= 技能等级*技能等级*技能等级 / 10\n" HIY
@@ -631,7 +635,7 @@ mixed accept_ask(object me, string topic)
 
         } else
         if (topic == "424") // 正气和邪气的作用
-        {                
+        {
                 msg = HIW + "\n"
 "老村长对你说道：那就让我来告诉你有关正气和邪气的信息吧：\n"
 "-------------------------------------------------------\n" HIM +
@@ -657,7 +661,7 @@ mixed accept_ask(object me, string topic)
 "    在泥潭里，所有的玩家都会有一个门派，在门派中你要获得较高\n"
 "的地位，学到更高级的武功及绝招以及获得师傅奖励的物品都需要消\n"
 "耗门派贡献。\n\n"
-"    在泥潭里，你可以通过完成师门任务（输入指令 help quest 查\n"
+"    在泥潭里，你可以通过完成师门任务（输入指令 " + HLP_HIM("help quest") + " 查\n"
 "看）或一些特殊故事情节来增加门派贡献度。\n\n" NOR;
 
         } else
@@ -684,7 +688,7 @@ mixed accept_ask(object me, string topic)
 "    简单来说，精气代表着你的精神状态，你在读书或者研究武功的\n"
 "时候需要消耗精气。精气为零只会导致你不能读书或研究武功，不会\n"
 "晕倒。\n\n" HIR
-"   如何提高精气？\n\n" HIM 
+"   如何提高精气？\n\n" HIM
 "   提高你的精力值，精气上限值受精力值的限制。\n\n" NOR;
 
         } else
@@ -698,7 +702,7 @@ mixed accept_ask(object me, string topic)
 "味着死亡。再就是，精力的高低影响着你的发展，如修炼一些高级\n"
 "武学境界，同时精力的高低也直接影响着精气的高低。\n\n" HIR
 "    如何提高精力？\n\n" HIM
-"    你可以通过吐呐（输入指令 help tuna 查看）来提高你的精力。\n\n" NOR;
+"    你可以通过吐呐（输入指令 " + HLP_HIM("help tuna") + " 查看）来提高你的精力。\n\n" NOR;
 
         } else
         if (topic == "433") // 气血的作用
@@ -712,7 +716,7 @@ mixed accept_ask(object me, string topic)
 "    随着你年龄的增加你的气血会增加少量，在泥潭里累积在线 240\n"
 "小时增加年龄一岁。再就是你的内力上限影响你的气血，内力越来越\n"
 "高你的气血就会越高，所以等你有一定内功基础后可以通过打坐来提\n"
-"高内力，从而提高你的气血， 有关打坐方法请输入指令 help dazuo\n"
+"高内力，从而提高你的气血， 有关打坐方法请输入指令 " + HLP_HIM("help dazuo") + "\n"
 "查看。\n\n" NOR;
 
         } else
@@ -726,7 +730,7 @@ mixed accept_ask(object me, string topic)
 "常重要的属性。\n\n" HIR
 "    如何提高内力？\n" HIM
 "    等你有一定内功基础的时候可以通过打坐来提高你的内力，有关\n"
-"打坐的方法及指令可输入指令 help dazuo 来查看。\n\n" NOR;
+"打坐的方法及指令可输入指令 " + HLP_HIM("help dazuo") + " 来查看。\n\n" NOR;
 
         } else
         if (topic == "435") // 食物与饮水有什么作用
@@ -897,7 +901,7 @@ mixed accept_ask(object me, string topic)
                 msg = HIW + "\n"
 "老村长对你说道：那就让我来告诉你有关查看世界地图信息吧：\n"
 "-------------------------------------------------------\n" HIM +
-"    输入指令 " BLINK + HIY + "help mapall.txt" + NOR + HIM " 来查看整个世界地图。\n" HIR
+"    输入指令 " + HLP_HIM("help mapall.txt") + " 来查看整个世界地图。\n" HIR
 "    赶快试试这个指令吧！\n\n" NOR;
         } else
         if (topic == "61") // 行走
@@ -953,7 +957,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "可以从任何地方开始，直接到达各大城市马厩，而且可以通过记录某些地点，\n"
 "以后可骑马直接达到。更重要的是，你不但可以自己骑马而且也可以搭上你\n"
 "的同伴与你一起快马同行。\n"
-"如果你对骑马的移动方式感兴趣可参见帮助文件 " HIY "help horse\n\n" NOR;
+"如果你对骑马的移动方式感兴趣可参见帮助文件 " + HLP_NOR("help horse") + "\n\n" NOR;
         } else
         if (topic == "64") // 追寻自己的神兵
         {
@@ -963,7 +967,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "    每一个江湖人士都会有一把自己心爱的兵器，兵器也有等级之分，当你\n"
 "的兵器被炼化到十级的时候，你便可以把兵器放在任何一个地方，以后直接\n"
 "通过追寻(指令为 miss <兵器ID>)便可从任何地方到达你兵器所在地方。\n"
-"如果你对追寻神兵感兴趣的话可参见帮助文件 " HIY "help weapon\n\n" NOR;
+"如果你对追寻神兵感兴趣的话可参见帮助文件 " + HLP_NOR("help weapon") + "\n\n" NOR;
         } else
         if (topic == "71") // 聊天指令
         {
@@ -978,7 +982,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "    bill <聊天内容>   ： 交易频道，交易信息可在此频道发布。\n"
 "    family <聊天内容> ： 同门交流，只有与你同师门的玩家能收到。\n"
 "    tell sb <聊天内容>： 密谈，跟sb进行秘聊，这些聊天内容只有你们两人看得到。\n\n" HIM
-"    其他聊天指令可参见帮助文件 help channels\n\n" NOR;
+"    其他聊天指令可参见帮助文件 " + HLP_NOR("help channels") + "\n\n" NOR;
         } else
         if (topic == "72") // 留言
         {
@@ -1037,17 +1041,17 @@ HIM "可查看各城市ID。\n\n" NOR;
 "-------------------------------------------------------\n" HIM +
 "    如果你内功等级高，你中毒后，可以先封闭穴道（输入指令 fengxue），然后尽快\n"
 "解毒。解毒的方式有多种，一种是自己用内功逼毒或者找内功高的玩家帮助解毒，还有\n"
-"一种是找解毒的NPC帮助解毒。具体信息可参见帮助文件 help poison\n\n"
+"一种是找解毒的NPC帮助解毒。具体信息可参见帮助文件 " + HLP_HIM("help poison") + "\n\n"
 "    如果你在古村中毒的话，可来找我解毒 ask lao about 治疗 \n\n" NOR;
 
         } else
-        if (topic == "95") // 受伤了怎么办 
+        if (topic == "95") // 受伤了怎么办
         {
                 msg = HIW + "\n"
 "老村长对你说道：那就让我来告诉你有关受伤了怎么办的信息吧：\n"
 "---------------------------------------------------------\n" HIM +
 "    通常，你的气血会逐渐慢慢的恢复，恢复速度跟你的根骨属性有关。如果你的内功\n"
-"达到一定等级，你可以运用内功来疗伤，具体信息可参见帮助文件 help force\n\n"
+"达到一定等级，你可以运用内功来疗伤，具体信息可参见帮助文件 " + HLP_HIM("help force") + "\n\n"
 "    如果你在古村受伤，你可以来找我，输入指令 ask lao about 治疗 \n\n" NOR;
         } else
         if (topic == "96") // 如何拣东西、给东西、扔东西
@@ -1078,7 +1082,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "powerup        提升战力          shield      护体真气\n\n" NOR +
 "    如你要使用疗伤功能则可使用指令 yun heal。当然，前提是你已经学会一种内功，并\n"
 "且内功修为和内力修为达到一定等级。\n\n" HIY +
-"    更多相关帮助请参阅帮助文件 help force\n\n" NOR;
+"    更多相关帮助请参阅帮助文件 " + HLP_NOR("help force") + "\n\n" NOR;
         } else
         if (topic == "102") // 外功介绍
         {
@@ -1087,7 +1091,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "--------------------------------------------------\n" HIM +
 "    外功即你的外家功夫的修为，如剑法，拳法等，如独孤九剑和太极拳就是外功的一种。\n"
 "通常战斗中用来攻击对方的都是外功，而外功施展绝招需要内功和内力的支持。\n\n" HIY +
-"    有关武功说明可参见帮助文件 help skills\n\n" NOR;
+"    有关武功说明可参见帮助文件 " + HLP_NOR("help skills") + "\n\n" NOR;
         } else
         if (topic == "103") // 轻功介绍
         {
@@ -1165,7 +1169,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 
         if( !query("newbie_quest_completed/baishi", me) )
         {
-                msg += HIM "    现在，你将接受一个练习，你到练武场去找一个叫武伯的人，然后拜他为师后再回来\n"; 
+                msg += HIM "    现在，你将接受一个练习，你到练武场去找一个叫武伯的人，然后拜他为师后再回来\n";
                 msg +=     "找我 " HIY "ask lao about ok" HIM " 。\n\n" NOR;
                 set("newbie_quest/leixing", "baishi", me);
                 set("newbie_quest/quest_name", "如何拜师", me);
@@ -1212,7 +1216,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 
         if( !query("newbie_quest_completed/jifa", me) )
         {
-                msg += HIM "    现在，你将接受一个练习，先找武伯学会「基本剑法」和「天剑」，然后将天剑\n";                              
+                msg += HIM "    现在，你将接受一个练习，先找武伯学会「基本剑法」和「天剑」，然后将天剑\n";
                 msg +=     "激发为基本剑法后再来找我 " HIY "ask lao about ok" HIM " 。\n\n" NOR;
                 set("newbie_quest/leixing", "jifa", me);
                 set("newbie_quest/quest_name", "如何激发武功", me);
@@ -1234,8 +1238,8 @@ HIM "可查看各城市ID。\n\n" NOR;
 "    jiali <数值>       :       这个表示你设置用多少内力来伤敌，通常设置为max。\n"
 "    halt               :       停止战斗，在下达kill指令后无法停止。\n"
 "    perform <绝招ID>   :       施展绝招。\n"
-"    yun <内功ID>       :       运功，如yun powerup可提高战斗力。详细地可参见帮助文件 help force。\n\n" HIM
-"    以上都是战斗中最常用的指令，要想了解更多的请参见泥潭帮助文件库，输入指令 help 。\n\n";
+"    yun <内功ID>       :       运功，如yun powerup可提高战斗力。详细地可参见帮助文件 " + HLP_HIM("help force") + "。\n\n"
+"    以上都是战斗中最常用的指令，要想了解更多的请参见泥潭帮助文件库，输入指令 " + HLP_HIM("help") + " 。\n\n";
 
          }  else
         if (topic == "114") // 如何施展内功
@@ -1282,8 +1286,8 @@ HIM "可查看各城市ID。\n\n" NOR;
 "老村长对你说道：那就让我来告诉你有关查看帮助文件库的信息吧：\n"
 "--------------------------------------------------------\n" HIM +
 "    泥潭帮助文件库中有丰富的有关这个游戏的各种帮助信息，几乎所有的信息都可以在里面\n"
-"查阅到，输入指令 help 可打开帮助信息库，然后输入 help <信息代码>  可查看到具体需要\n"
-"查看的信息，如需要查看华山派介绍则输入 help huashan 即可。\n\n" NOR;
+"查阅到，输入指令 " + HLP_HIM("help") + " 可打开帮助信息库，然后输入 " + HLP_HIM("help <信息代码>") + "  可查看到具体需要\n"
+"查看的信息，如需要查看华山派介绍则输入 " + HLP_HIM("help huashan") + " 即可。\n\n" NOR;
         }  else
         if (topic == "122") // 玩家间的交流
         {
@@ -1292,7 +1296,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "-----------------------------------------------------------\n" HIM +
 "    在泥潭里，交流是必不可少的学习途径，也是获得帮助最重要的方法之一，记住，多和\n"
 "有经验的朋友交流，少走弯路，可以使你更快地成长。本站提供了丰富的交流指令，可以参\n"
-"见帮助文件 help channels。\n\n"
+"见帮助文件 " + HLP_HIM("help channels") + "。\n\n"
 "    虽然在线交流非常重要，但是离线交流也很重要，你可以使用 msg send <玩家ID>  指\n"
 "令发送一个短信息给对方，不管对方是否在线都会收到，交流在泥潭里就是如此的简单。\n\n" NOR;
         }  else
@@ -1310,7 +1314,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "老村长对你说道：那就让我来告诉你有关广播你的求教信息的信息吧：\n"
 "-------------------------------------------------------------\n" HIM +
 "    除了与导师在线交流及短消息沟通外，一些问题你需要征求所有导师的意见以及本站管\n"
-"理巫师的意见，你可以使用 teach help 指令发布你的求教信息。\n\n" NOR;
+"理巫师的意见，你可以使用 " + HLP_HIM("teach help") + " 指令发布你的求教信息。\n\n" NOR;
         }  else
         if (topic == "125") // 在泥潭信息库中搜索你指定的信息
         {
@@ -1319,7 +1323,7 @@ HIM "可查看各城市ID。\n\n" NOR;
 "---------------------------------------------------------------------------\n" HIM +
 "    虽然泥潭的帮助库文件内容非常丰富，但是也带来另外一个问题，如何快速地查找到你\n"
 "需要的信息呢？我们为方便大家查找各种信息，提供了一个 grep 指令，比如你要在帮助库\n"
-"中查找有关 太极拳 的信息，你可以输入 grep help 太极拳 ，这时，系统会将帮助文件库\n"
+"中查找有关 太极拳 的信息，你可以输入 " + HLP_HIM("grep help 太极拳") + " ，这时，系统会将帮助文件库\n"
 "中所有有关太极拳的帮助文件名罗列出来，供你进一步参考。\n\n" NOR;
         }
         else
@@ -1400,7 +1404,7 @@ mixed ask_chucun()
         {
                 tell_object(me, "老村长告诉你：你还没有学会如何移动呢！请 ask lao about 61\n");
                 return 1;
-        }        
+        }
 
         // 2、是否学会装备兵器
         if( !query("newbie_quest_completed/move", me) )
@@ -1431,7 +1435,7 @@ mixed ask_chucun()
         }
 
         set("newbie_quest_completed/can_out", 1, me);
-        
+
         msg = HIY "不错，不错，看来你已经决定出去闯荡江湖了！在你临走前，我将送你一件\n"
                   "礼物，你先把你的眼睛闭上（指令 closeeye ）吧。\n\n" NOR;
 */
@@ -1445,7 +1449,7 @@ mixed ask_chucun()
         else
                 tell_object(me, HIY "不错，不错，看来你已经可以出去闯荡江湖了！\n\n" NOR);
 
-        return 1;        
+        return 1;
 }
 
 void init()
@@ -1460,7 +1464,7 @@ void init()
         add_action("do_choose", "choose");
 
         return;
-        
+
 }
 
 void do_hello(object me)
@@ -1468,36 +1472,36 @@ void do_hello(object me)
         if (! objectp(me))return;
 
         if (environment(me) != environment(this_object()))return;
-                
+
         tell_object(me, HIG "\n老村长对你说道：这位" + RANK_D->query_respect(me) +
                 "，如果需要帮助请输入指令 " HIR "ask lao about here \n\n" NOR);
 }
 
-int do_choose(string arg) 
+int do_choose(string arg)
 {
-        object me = this_player(); 
-        int n; 
+        object me = this_player();
+        int n;
 
-        if (! arg || arg == "") 
-                n = 1; 
-        else 
-                sscanf(arg, "%d", n); 
+        if (! arg || arg == "")
+                n = 1;
+        else
+                sscanf(arg, "%d", n);
 
-       if (n < 1 || n > 2) 
-       { 
-               write("您只能选择(choose)系统所提供的这 2 种江湖道路：\n" 
-                   HIR "1.快意恩仇(PK)  " NOR 
-                   HIC "2" NOR ".江湖隐士(NOPK) (" 
-                   HIC "choose 1" NOR "-" HIC "2" NOR ")\n"); 
-               return 1; 
-       } 
+       if (n < 1 || n > 2)
+       {
+               write("您只能选择(choose)系统所提供的这 2 种江湖道路：\n"
+                   HIR "1.快意恩仇(PK)  " NOR
+                   HIC "2" NOR ".江湖隐士(NOPK) ("
+                   HIC "choose 1" NOR "-" HIC "2" NOR ")\n");
+               return 1;
+       }
 
-       switch(n) 
-       { 
-       case 1: 
+       switch(n)
+       {
+       case 1:
                write(HIR "你选择了快意恩仇的江湖路，好气魄！\n" NOR);
                break;
-       case 2: 
+       case 2:
                set("NO_PK", 1, me);
                write(HIC "你选择了江湖隐士的江湖路，好心态！\n" NOR);
                break;
@@ -1515,7 +1519,7 @@ int do_closeeye(string arg)
         int point, myexp;
         string mapsk;
         int exp, pot, score;
-        
+
         int can_exp = 1;
 
         me = this_player();
@@ -1538,41 +1542,41 @@ int do_closeeye(string arg)
         tell_object(me, msg);
 
         mapsk = me->query_skill_mapped("force");
-        //if (me->can_improve_skill("force")) 
-               me->improve_skill("force", 1500000); 
-        if (stringp(mapsk) && me->can_improve_skill(mapsk)) 
+        //if (me->can_improve_skill("force"))
+               me->improve_skill("force", 1500000);
+        if (stringp(mapsk) && me->can_improve_skill(mapsk))
                me->improve_skill(mapsk, 1500000);
 
         mapsk = me->query_skill_mapped("sword");
-        //if (me->can_improve_skill("sword")) 
-               me->improve_skill("sword", 1500000); 
-        if (stringp(mapsk) && me->can_improve_skill(mapsk)) 
+        //if (me->can_improve_skill("sword"))
+               me->improve_skill("sword", 1500000);
+        if (stringp(mapsk) && me->can_improve_skill(mapsk))
                me->improve_skill(mapsk, 1500000);
 
         mapsk = me->query_skill_mapped("parry");
-        //if (me->can_improve_skill("parry")) 
-               me->improve_skill("parry", 1500000); 
-        if (stringp(mapsk) && me->can_improve_skill(mapsk)) 
+        //if (me->can_improve_skill("parry"))
+               me->improve_skill("parry", 1500000);
+        if (stringp(mapsk) && me->can_improve_skill(mapsk))
                me->improve_skill(mapsk, 1500000);
 
         mapsk = me->query_skill_mapped("dodge");
-        //if (me->can_improve_skill("dodge")) 
-               me->improve_skill("dodge", 1500000); 
-        if (stringp(mapsk) && me->can_improve_skill(mapsk)) 
+        //if (me->can_improve_skill("dodge"))
+               me->improve_skill("dodge", 1500000);
+        if (stringp(mapsk) && me->can_improve_skill(mapsk))
                me->improve_skill(mapsk, 1500000);
 
         mapsk = me->query_skill_mapped("blade");
-        //if (me->can_improve_skill("blade")) 
-               me->improve_skill("blade", 1500000); 
-        if (stringp(mapsk) && me->can_improve_skill(mapsk)) 
-               me->improve_skill(mapsk, 1500000);        
+        //if (me->can_improve_skill("blade"))
+               me->improve_skill("blade", 1500000);
+        if (stringp(mapsk) && me->can_improve_skill(mapsk))
+               me->improve_skill(mapsk, 1500000);
 
         mapsk = me->query_skill_mapped("unarmed");
-        //if (me->can_improve_skill("unarmed")) 
-               me->improve_skill("unarmed", 1500000); 
-        if (stringp(mapsk) && me->can_improve_skill(mapsk)) 
-               me->improve_skill(mapsk, 1500000);        
-               
+        //if (me->can_improve_skill("unarmed"))
+               me->improve_skill("unarmed", 1500000);
+        if (stringp(mapsk) && me->can_improve_skill(mapsk))
+               me->improve_skill(mapsk, 1500000);
+
         point = 3500 - myexp;
         if (point <= 0)point = 400 + random(400);
         exp = can_exp * point / 2 + can_exp * random(point / 2);
@@ -1587,14 +1591,14 @@ int do_closeeye(string arg)
         addn("max_qi", 300, me);
         addn("score", score, me);
 
-        msg  = HIY "\n你得到了" + chinese_number(exp) + "点实战经验、" + chinese_number(pot) + "点潜能，" + 
+        msg  = HIY "\n你得到了" + chinese_number(exp) + "点实战经验、" + chinese_number(pot) + "点潜能，" +
                    chinese_number(score) + "点江湖阅历，并且\n你的内力修为、气血、精力都有了提高！\n\n" NOR;
 
         me->save();
 
-        msg+= HIG "老村长说道：你现在到村口（walk 村口）找花伯（指令 ask hua about 出村）吧，他会告诉你怎么出古村！\n";
+        msg+= HIG "老村长说道：你现在到村口找花伯（指令 ask hua about 出村）吧，他会告诉你怎么出古村！\n";
         msg+= HIC "老村长嘱咐道：以后行走江湖你就得多加小心了！切记，凡事需忍让，不可与人多起争端！\n\n" NOR;
-        
+
         tell_object(me, msg);
 
         return 1;

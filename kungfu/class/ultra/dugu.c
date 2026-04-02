@@ -66,7 +66,7 @@ void create()
         set("long",
 "这是一个普普通通的老者，一袭粗布衣裳，\n"
 "颏下一缕白须，神情详和。目光转动之间，\n"
-"隐隐流露出一丝王者之气。\n");
+"隐隐流露出一丝雪海之气。\n");
         set("attitude", "peaceful");
         set("no_get", 1);
         set("str", 38);
@@ -878,11 +878,11 @@ int accept_object(object who, object ob)
         if( query("questdg_times", who)+1>200 )
                mar=exp/5+random(query("questdg_times", who));
         else mar = 20 + random(20);
-        
+
         exp = exp*3;
         pot = pot*3;
         mar = mar*3;
-        
+
         if (mar > 1000) mar = 1000;
 
         if(wizardp(who)||!random(10))

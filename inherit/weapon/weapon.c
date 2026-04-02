@@ -281,12 +281,12 @@ int set_desc(int w_lv,string w_or,string w_name)
                 case 25:
                 case 26:
                 case 27:
-                        result3= "戾气似乎削减了不少，一股温和的王者之气透了出来。兵刃晃动，恍若"HIC"青虹贯日。\n"NOR;
+                        result3= "戾气似乎削减了不少，一股温和的雪海之气透了出来。兵刃晃动，恍若"HIC"青虹贯日。\n"NOR;
                         break;
                 case 28:
                 case 29:
                 case 30:
-                        result3= "一股温和的王者之气悠悠的散发了出来。兵刃晃动，恍若"HIC"冷月断魂。\n"NOR;
+                        result3= "一股温和的雪海之气悠悠的散发了出来。兵刃晃动，恍若"HIC"冷月断魂。\n"NOR;
                         break;
                 default:
                         result3= "一种庄严，温和，凛然而不可侵犯的气息让人不敢有一丝亵渎之意, 它已经返朴归真，成为真正的上古神兵。兵刃晃动，直欲"HIC"气冲斗牛。\n"NOR;

@@ -262,7 +262,7 @@ string ask_skill()
                        "晌，依法施为，纵身跃起，半空中挥刀直劈，呼"
                        "的\n一声，刀锋离地尚有数尺，地下已是尘沙飞"
                        "扬，败草落\n叶被刀风激得团团而舞，果然威力"
-                       "惊人。\n" NOR, ob, this_object());
+                       "惊人。\n" NOR, ob, me);
         command("heng");
         tell_object(ob, HIC "你学会了「金乌坠地」。\n" NOR);
     set("can_perform/jinwu-blade/jinwu", 1, ob);

@@ -582,7 +582,7 @@ varargs int do_channel(object me, string channel, string msg, mixed raw)
         if( userp(me) && channel == "chat" && random(100) < 20 )
         {
                 addn("active", 1, me);
-                tell_object(me, HIY "\n由于您的踊跃发言让王者归来更加热络，特别为您增加活跃值一点。\n" NOR);
+                tell_object(me, HIY "\n由于您的踊跃发言让雪海顠香更加热络，特别为您增加活跃值一点。\n" NOR);
 
 
         if ( query("krok/award", me) == krok_award ) {

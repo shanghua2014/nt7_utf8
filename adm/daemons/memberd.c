@@ -572,7 +572,7 @@ public int db_transfer_member(mixed ob, mixed to, int value)
 
         if (!is_member(id))
         {
-                write("您目前没有充值记录，也没有王者金币！\n");
+                write("您目前没有充值记录，也没有雪海金币！\n");
                 return 0;
         }
 
@@ -580,7 +580,7 @@ public int db_transfer_member(mixed ob, mixed to, int value)
         money = db_query_member(id, "money");
         if (money < value)
         {
-                write("对不起，您的王者金币数量不够！\n");
+                write("对不起，您的雪海金币数量不够！\n");
                 return 0;
         }
 
@@ -723,7 +723,7 @@ public void show_member_info(mixed ob, string arg)
                 write(HIG "  *请使用" HIR " member show payinfo " HIG "       查看历史充值记录。\n" NOR);
                 write(HIG "  *请使用" HIR " member show buyinfo " HIG "       查看购买物品记录。\n" NOR);
                 write(HIG "  *请使用" HIR " member show zhuaninfo " HIG "     查看历史转帐记录。\n" NOR);
-                write(HIG "  *请使用" HIR " member show goods " HIG "         查看王者商店出售的物品。\n" NOR);
+                write(HIG "  *请使用" HIR " member show goods " HIG "         查看雪海商店出售的物品。\n" NOR);
                 write(HIG "  *请使用" HIR " member zhuan <$NT> to <id>" HIG " 转帐金币($NT)给别的角色(ID)。\n" NOR);
                 write(HIG "  *请使用" HIR " member buy <物品代号> " HIG "     购买物品。\n" NOR);
                 write(HIG "  *请使用" HIR " member look <物品代号> " HIG "    查看物品。\n" NOR);

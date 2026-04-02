@@ -36,7 +36,7 @@ int compare_date(mixed a,mixed b)
                                 return 1;
                         }
                 }
-        }       
+        }
 }
 
 int is_action(string arg)
@@ -52,7 +52,7 @@ int is_action(string arg)
         if(!arg || undefinedp(action_settings[arg]))
                 return 0;
 
-        if(compare_date(({action_settings[arg]["stimey"],action_settings[arg]["stimem"],action_settings[arg]["stimed"]}),({y,m,d})) && 
+        if(compare_date(({action_settings[arg]["stimey"],action_settings[arg]["stimem"],action_settings[arg]["stimed"]}),({y,m,d})) &&
            compare_date(({y,m,d}),({action_settings[arg]["etimey"],action_settings[arg]["etimem"],action_settings[arg]["etimed"]})) )
                 return 1;
         return 0;
@@ -143,7 +143,7 @@ string query_action_string()
 */
         ret = HIY"目前"+MUD_NAME+"提供的活动包括：\n";
         foreach( string key in keys(action_settings) ) {
-                ret += "\t"+action_settings[key]["name"]+"："+str2(action_settings[key]["start"]/60)+":"+str2(action_settings[key]["start"]%60)+"～"+str2(action_settings[key]["end"]/60)+":"+str2(action_settings[key]["end"]%60)+"（"+chinese_number(action_settings[key]["times"])+"倍）";
+                ret += "    "+action_settings[key]["name"]+"："+str2(action_settings[key]["start"]/60)+":"+str2(action_settings[key]["start"]%60)+"～"+str2(action_settings[key]["end"]/60)+":"+str2(action_settings[key]["end"]%60)+"（"+chinese_number(action_settings[key]["times"])+"倍）";
                 if( active_actions[key] ) {
                         ret += HIG"-当前进行中-今日剩余"+chinese_number(action_settings[key]["end"]-now_min)+"分钟\n"HIY;
                 } else {
@@ -201,15 +201,15 @@ int setup()
                         action_settings[tmp[0]]["start"] = get_minute_by_string(tmp[4]);//一天的第几分钟
                         action_settings[tmp[0]]["end"] = get_minute_by_string(tmp[5]);  //一天的第几分钟
                         action_settings[tmp[0]]["times"] = atoi(tmp[6]);
-                        
+
                         sscanf(tmp[2],"%d-%d-%d",y,m,d);
                         action_settings[tmp[0]]["stimey"] = y;
                         action_settings[tmp[0]]["stimem"] = m;
                         action_settings[tmp[0]]["stimed"] = d;
                         sscanf(tmp[3],"%d-%d-%d",y,m,d);
                         action_settings[tmp[0]]["etimey"] = y;
-                        action_settings[tmp[0]]["etimem"] = m;        
-                        action_settings[tmp[0]]["etimed"] = d;   
+                        action_settings[tmp[0]]["etimem"] = m;
+                        action_settings[tmp[0]]["etimed"] = d;
                 }
         }
         return 1;

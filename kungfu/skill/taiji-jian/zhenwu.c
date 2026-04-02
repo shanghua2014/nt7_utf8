@@ -60,10 +60,10 @@ int perform(object me, object target)
         if (me->is_bad()) ap = ap / 3;
         if (target->is_good()) ap = ap * 4 / 5;
         */
-        
+
         delta = ABILITY_D->check_ability(me, "ap_power-tjj-zhenwu"); // 门派ab
         if( delta ) ap += ap*delta/100;
-        
+
         fmsk = me->query_skill("tianwei-zhengqi", 1);
         if( wizardp(me) && query("env/combat_test", me) )
         {
@@ -73,10 +73,10 @@ int perform(object me, object target)
         {
                 damage = damage_power(me, "sword");
                 damage+= query("jiali", me);
-        
+
                 delta = ABILITY_D->check_ability(me, "da_power-tjj-zhenwu"); // 门派ab
                 if( delta ) damage += damage*delta/100;
-        
+
                 addn("neili", -500, me);
                 //tell_object(me, HIC "DAMAGE: " + damage + ".\n" NOR);
                 //msg += COMBAT_D->do_damage(me, target, WEAPON_ATTACK, damage, 285,
@@ -103,7 +103,7 @@ string final(object me, object target, int damage)
         target->receive_wound("jing", damage / 6, me);
         return  HIY "结果$p" HIY "没有把它放在心上，随"
                 "手应了一招，却见$P" HIY "剑势忽然一变"
-                "，\n气象万千，变幻无穷，极具王者风范！\n"
+                "，\n气象万千，变幻无穷，极具雪海风范！\n"
                 HIR "$p" HIR "惊慌失措，呆在当场，被$P"
                 HIR "这一剑击中要害！鲜血崩流，惨不忍睹！\n" NOR;
 }

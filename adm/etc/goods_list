@@ -66,7 +66,7 @@
 虚无越衡符:rune07:10:symbol:/clone/tessera/rune07:可镶嵌在装备上,详细参考help rune
 太极蒙翳符:rune08:10:symbol:/clone/tessera/rune08:可镶嵌在装备上,详细参考help rune
 赤明和阳符:rune09:10:symbol:/clone/tessera/rune09:可镶嵌在装备上,详细参考help rune
-玄明恭华符:rune10:10:symbol:/clone/tessera/rune10:可镶嵌在装备上,详细参考help rune 
+玄明恭华符:rune10:10:symbol:/clone/tessera/rune10:可镶嵌在装备上,详细参考help rune
 耀明宗飘符:rune11:10:symbol:/clone/tessera/rune11:可镶嵌在装备上,详细参考help rune
 竺落皇笳符:rune12:10:symbol:/clone/tessera/rune12:可镶嵌在装备上,详细参考help rune
 虚明堂曜符:rune13:10:symbol:/clone/tessera/rune13:可镶嵌在装备上,详细参考help rune
@@ -130,7 +130,7 @@
 破妄神瞳:astral:100:special2:/kungfu/special/astral:元神技能,最多限购四个
 九龙神火炉:jiulonglu:200:object:/clone/goods/jiulonglu:炼药师用来炼制丹药的顶级神器
 册马石:cemashi:20:object:/clone/goods/cemashi:可使你增加一条骑马记录点
-王者之心:wangzhe:50:object:/clone/goods/wangzhe-zhixin:用来绿化套装的必需物品
+雪海之晶:wangzhe:50:object:/clone/goods/wangzhe-zhixin:用来绿化套装的必需物品
 血之禁忌:blood:1:object:/adm/npc/obj/blood-taboo:用来解除你与魔幻兽之间签订的血之盟约
 分解卷轴:resolve:1:object:/clone/goods/resolve-scroll:用来分解动态装备属性成元素粉末
 武器之魂:weapon-soul:5:object:/clone/enchase/weapon_soul6:一个完美的武器之魂，可用来启灵兵器。
@@ -209,13 +209,13 @@
 清师令:qingshiling:498:object:/clone/goods/qingshiling:可以清除脱离师门记录一个
 高级清师令:qingshiling2:8888:object:/clone/goods/qingshiling2:增加无损脱离门派一次机会，基本技能和公共技能不降级，内力和精力降到75%。
 盗墓勋章:daomu:398:object:/clone/medal/daomu_xunzhang:可以在秦皇陵墓里免疫被怪物busy效果。
-肉身菩提:roushen:15:object:/clone/goods/moon_hp:武器和防具的镶嵌物（无SN），增幅气血精力，提高技能等等。 
+肉身菩提:roushen:15:object:/clone/goods/moon_hp:武器和防具的镶嵌物（无SN），增幅气血精力，提高技能等等。
 接龙手术:mgenital:500:srv:/clone/goods/service:变成男性从此意气风发。（伴侣小孩全丢失，可能丢失特殊武功比如辟邪剑、明玉功）
 除根手术:fgenital:300:srv:/clone/goods/service:变成女性从此轻松愉快。（伴侣小孩全丢失，可能丢失特殊武功比如辟邪剑、明玉功）
-天乙神酒:tianyishenjiu:24:object:/kungfu/class/sky/obj/shenjiu:诗仙李白身上的好酒。 
+天乙神酒:tianyishenjiu:24:object:/kungfu/class/sky/obj/shenjiu:诗仙李白身上的好酒。
 蟠桃:pantao:6:object:/d/emei/obj/pantao:据说是猴子从王母娘娘那里偷来的，增加5000的额外最大内力。
 万象天书:wanxiang:5:object:/d/dongtian/obj/wanxiangbook:包罗万象，天下武学尽在其中。
-秘魔邪眼:mimo:20:object:/clone/goods/moon_mf:武器和防具的镶嵌物（无SN），增加寻宝率、抵抗BUSY等负面状态。 
+秘魔邪眼:mimo:20:object:/clone/goods/moon_mf:武器和防具的镶嵌物（无SN），增加寻宝率、抵抗BUSY等负面状态。
 重置最大内力:resetneili:30:srv:/clone/goods/service:最大内力重置为100。
 重置最大精力:resetjingli:30:srv:/clone/goods/service:最大精力重置为100。
 洞天元晶:dtyj:200:object:/d/dongtian/obj/yuanjing:80枚洞天元气凝结成的晶体，可以熔炼成洞天仙府令（至少能卖当铺）。

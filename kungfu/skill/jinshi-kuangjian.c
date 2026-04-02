@@ -21,13 +21,13 @@ mapping *action = ({
         "skill_name" : "金狮裂地",
         "damage_type":  "割伤"
 ]),
-([      "action": "$N抽身后退，一招「王者无情」,$w向波浪般的刺向$n的致命之处",
+([      "action": "$N抽身后退，一招「雪海无情」,$w向波浪般的刺向$n的致命之处",
         "force" : 167,
         "parry" : -12,
         "dodge" : -15,
         "damage": 31,
         "lvl"   : 50,
-        "skill_name" : "王者无情",
+        "skill_name" : "雪海无情",
         "damage_type":  "刺伤"
 ]),
 ([      "action": "$N身行忽坐忽右，手中$w忽上忽下，一招「狮王怒吼」攻向$n的$l",

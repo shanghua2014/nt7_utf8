@@ -41,19 +41,13 @@ int valid_leave(object me, string dir)
         if (dir == "southwest")
         {
                 if (!userp(me)) return 0;
-                current_water=query("water", me);
-                if (current_water==0)
-                {
-                }
-
-                if (current_water>0 && current_water<20)
-                {
+                current_water = query("water", me);
+                if (current_water > 0 && current_water < 20)
                         set("water", 0, me);
-                }
-                if (current_water>20)
+                else if (current_water > 20)
                 {
-                        if( !objectp(present("bigu fu", me)) && query("reborn/times", me) < 3 )
-                        set("water", current_water-20, me);
+                        if (!objectp(present("bigu fu", me)) && query("reborn/times", me) < 3)
+                                set("water", current_water - 20, me);
                 }
                 return ::valid_leave(me, dir);
         }

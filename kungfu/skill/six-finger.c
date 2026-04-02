@@ -403,9 +403,9 @@ int valid_learn(object me)
 
 int practice_skill(object me)
 {
-        object* ob, obj;
-        int i,skill,damage,cost;
-        cost=40;
+        int skill, cost;
+        cost = 40;
+        skill = (int)me->query_skill("six-finger", 1);
         if( query_temp("weapon", me) || query_temp("secondary_weapon", me) )
                 return notify_fail("你的必须空手才能练习。\n");
         if( query("qi", me)<160 )
@@ -429,8 +429,6 @@ string query_skill_name(int level)
 }
 mixed hit_ob(object me, object victim, int damage_bonus, int i, int attack_time)
 {
-        string name;
-
         if (userp(me))
                 attack_time = (int)(me->query_skill("six-finger", 1) / 50);
         else

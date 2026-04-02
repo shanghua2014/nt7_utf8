@@ -506,7 +506,7 @@ string query_now_long()
 {
     string msg;
 
-    msg ="这里是王者归来的一家小赌坊，别看它规模不大，却常常有许多千金富豪
+    msg ="这里是雪海顠香的一家小赌坊，别看它规模不大，却常常有许多千金富豪
 来这里彻夜豪赌。对门的墙上帖着一张布告(bugao)。\n\n";
     msg += query_now_long2();
     return msg;

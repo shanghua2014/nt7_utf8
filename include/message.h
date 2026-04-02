@@ -25,6 +25,7 @@ void log_message(string msg);
 void log_command(string cmd);
 void receive_message(string msgclass, string msg);
 void clear_written();
+void reset_written_state();
 int  is_waiting_command();
 void write_prompt();
 void receive_snoop(string msg);

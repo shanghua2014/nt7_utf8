@@ -5,19 +5,17 @@ void check_weapon();
 
 void create()
 {
-        object staff;
-        
         set_name("蚩尤巨像", ({ "chi you", "chiyou" }) );
         set("race", "人类");
         set("gender", "男性");
         set("age", 10000);
-        set("long", "蚩尤，与黄帝涿鹿中原的一代大神，鬓如剑戟，头有利角，铜头铁额，诛杀 
+        set("long", "蚩尤，与黄帝涿鹿中原的一代大神，鬓如剑戟，头有利角，铜头铁额，诛杀
 无道，乃古往今来睥睨天下之第一凶魔！他的头顶，有一根放射出万道金华
 的[37m法杖[32m没顶而插\n");
         set("title", "不世战神");
         set("nickname", HIR"万古凶魔"NOR);
-        
-        set("NO_KILL","你无法攻击一具石像。\n"); 
+
+        set("NO_KILL","你无法攻击一具石像。\n");
         set("attitude", "peaceful");
 
         set("per", 21);
@@ -70,17 +68,17 @@ void create()
         prepare_skill("strike", "moshen-zhangfa");
 
         set("no_nuoyi", 1); // 不被挪移影响
-        
+
         set("my_life", 1); // 当气血低于10%的时候补满一次，设置该参数为0
         set("staff", 1);
-        
+
         set("chat_chance_combat", 120);
         set("chat_msg_combat", ({
                 (: perform_action, "blade.ting" :),
                 (: perform_action, "blade.yue" :),
                 (: exert_function, "recover" :),
         }) );
-        
+
         set("rewards", ([
                 "exp"   : 800000,
                 "pot"   : 400000,
@@ -98,7 +96,7 @@ void create()
                 "FI&/clone/goods/luck_neck"      : 1,
                 "FI&/clone/tongren/tongren"+(1+random(2)) : 500,
         ]));
-        
+
         set_temp("apply/attack", 1000000);
         set_temp("apply/unarmed_damage", 100000);
         set_temp("apply/damage", 100000);
@@ -109,18 +107,18 @@ void create()
         set_temp("apply/reduce_busy", 66);
         set_temp("apply/add_busy", 25);
         set_temp("apply/reduce_poison", 80);
-                                
+
         setup();
         carry_object("/clone/misc/cloth")->wear();
         carry_object("/kungfu/class/mojiao/obj/blade")->wield();
 }
 
-void init() 
+void init()
 {
         if (query("staff"))
                 add_action("do_pull", "pull");
         if (interactive(this_player()) && !query("NO_KILL")){
-                kill_ob(this_player()); 
+                kill_ob(this_player());
                 this_player()->kill_ob(this_object());
         }
 }
@@ -143,10 +141,10 @@ string staff()
 
 int do_pull(string arg)
 {
-        object me, staff;
+        object me;
         int damage;
         me = this_player();
-        
+
         if(!arg || (arg != "staff" && arg != "法杖")) {
                 return notify_fail("你要拔什么？\n");
         }
@@ -159,8 +157,8 @@ int do_pull(string arg)
         if(query("jiali",me) > 80 && me->query_str() > 30 ) {
                 message_vision("$N双手紧紧握住菩提法杖，牙关一咬，虎口鲜血迸射，怒喝一声：起！！\n", me);
                 message_vision(HIY"\n菩提法杖突然放出万道金华，七色彩晕，山摇地动之间，法杖应声而起，冲天而出！\n"NOR,
-                                me);  
-        set("long", "蚩尤，与黄帝涿鹿中原的一代大神，鬓如剑戟，头有利角，铜头铁额，诛杀 
+                                me);
+        set("long", "蚩尤，与黄帝涿鹿中原的一代大神，鬓如剑戟，头有利角，铜头铁额，诛杀
 无道，乃古往今来睥睨天下之第一凶魔！\n");
                 set("staff", 0);
                 me->start_busy(3);
@@ -177,15 +175,15 @@ int do_pull(string arg)
 
 void stone_fall(object me)
 {
-        object *all, *inv, room, obj;
+        object *all, *inv;
         int i;
-        
+
         all = all_inventory(environment(this_object()));
-        
-        message_vision("\n突然之间蚩尤秘窟有如天崩地裂般，浓云翻滚，电闪雷鸣，山石又如疾风暴雨般\n", me);        
-        message_vision("漫天砸下！\n", me); 
+
+        message_vision("\n突然之间蚩尤秘窟有如天崩地裂般，浓云翻滚，电闪雷鸣，山石又如疾风暴雨般\n", me);
+        message_vision("漫天砸下！\n", me);
         message_vision("\n$N神色大变，奋起全力在乱石风暴中苦苦寻求一线生机。\n", me);
-        
+
         inv = filter_array(all, (: interactive($1):));
         for(i=0; i<sizeof(inv); i++) {
                 message_vision(HIY"$N被这突如其来的变化惊的目瞪口呆，只见无数巨石狠狠地砸了过来，\n"NOR, inv[i]);
@@ -195,34 +193,34 @@ void stone_fall(object me)
                 } else {
                         tell_object(inv[i], "你左挡右躲向前奔跑期望躲过巨石的袭击。\n");
                         me->start_busy(3);
-                        
-                        message_vision(RED"\n$N一个躲闪不及，无数巨石狠狠地砸了过来。。。\n"NOR, inv[i]);          
+
+                        message_vision(RED"\n$N一个躲闪不及，无数巨石狠狠地砸了过来。。。\n"NOR, inv[i]);
                         inv[i]->unconcious(me);
                 }
         }
-        
+
         remove_call_out("chiyou");
         call_out("chiyou", 3, me);
-        
+
 }
 
 void chiyou(object ob)
 {
         object *all, *inv;
         int i;
-        
+
         if(!interactive(ob) && environment(ob) != this_object()){
                 set("staff",1);
                 return;
         }
         message_vision(HIB"\n漫天乱石中，狂风乍起，天色变得一片狰狞，仿佛无数厉鬼野兽在咆哮怒吼！\n"NOR, ob);
-        message_vision(HIR"\n鲜红如血般的大火熊熊燃起，一片火海中升起一个高达百尺，有如天神般的巨汉！\n"NOR,ob); 
+        message_vision(HIR"\n鲜红如血般的大火熊熊燃起，一片火海中升起一个高达百尺，有如天神般的巨汉！\n"NOR,ob);
         message_vision(HIR"远处，近处，空气中每一处地方无数的凶灵邪兽齐声膜拜，狂呼！！\n\n"NOR, ob);
         message_vision(HIY"              －－不－世－战－神－－蚩－尤－重－生－－  \n\n"NOR, ob);
-        
-        delete("NO_KILL");      
+
+        delete("NO_KILL");
         set("name","蚩尤");
-        
+
         all = all_inventory(environment(this_object()));
         inv = filter_array(all, (: interactive($1):));
         for(i=0; i<sizeof(inv); i++) {
@@ -324,18 +322,18 @@ int accept_kill(object me)
         return 1;
 }
 
-int accept_ansuan(object me) 
-{     
-        if( query("NO_KILL") ) return 0;
-        return notify_fail("那人警惕性好高，你难以下手。\n"); 
-}
-
-int accept_touxi(object who) 
+int accept_ansuan(object me)
 {
         if( query("NO_KILL") ) return 0;
-        return notify_fail("那人警惕性好高，你难以下手。\n"); 
+        return notify_fail("那人警惕性好高，你难以下手。\n");
 }
-        
+
+int accept_touxi(object who)
+{
+        if( query("NO_KILL") ) return 0;
+        return notify_fail("那人警惕性好高，你难以下手。\n");
+}
+
 void new_life()
 {
         full_self(); // 补满气血
@@ -357,12 +355,10 @@ void new_life()
 
 void die(object killer)
 {
-        string prop, name;
-        mapping data;
-        object ob, where;
-        string *apply = ({ "reduce_busy", "avoid_busy", "def_damage", "avoid_weak",
-                "add_locked", "reduce_damage", "add_busy", "add_weak", "avoid_locked",
-                "add_damage", "add_skill" });
+        object ob;
+        // string *apply = ({ "reduce_busy", "avoid_busy", "def_damage", "avoid_weak",
+        //         "add_locked", "reduce_damage", "add_busy", "add_weak", "avoid_locked",
+        //         "add_damage", "add_skill" });
 
         if( objectp(ob = previous_object(0)) && sscanf(base_name(ob), "/kungfu/skill/%*s") )
         {

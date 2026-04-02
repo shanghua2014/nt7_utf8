@@ -14,8 +14,8 @@ int main(object me, string arg)
         mapping buy_list;
         string *str_buy_list;
         int i;
-        
-        MYGIFT_D->check_mygift(me, "newbie_mygift/ntstore");  
+
+        MYGIFT_D->check_mygift(me, "newbie_mygift/ntstore");
 
         if( !arg || arg == "") return help(me);
         if( time()-query_temp("last_member", me)<3 )
@@ -23,11 +23,11 @@ int main(object me, string arg)
 
         if( !wizardp(me) )
                 set_temp("last_member", time(), me);
-        
+
         if( arg == "buylist" && wizardp(me) )
         {
                 buy_list = DB_D->query_data("ntstore/buylist");
-                
+
                 str_buy_list = DB_D->sort_mapping(buy_list, 0);
 
                 write(HIG " --== 商城销售统计简表（统计时间：2013年1月1日起） ==--\n" NOR);
@@ -43,7 +43,7 @@ int main(object me, string arg)
 
                 return 1;
         }
-          
+
         if( sscanf(arg, "%s %s", str1, str2) != 2 )
                 return help(me);
 
@@ -78,7 +78,7 @@ int help (object me)
         money = MEMBER_D->db_query_member(me, "money");
         buyvalue = MEMBER_D->db_query_member(me, "buyvalue");
 
-        write(HIY "□ 您目前的王者币为 " + money + " (NT)
+        write(HIY "□ 您目前的雪海币为 " + money + " (NT)
 " WHT "——————————————————————————————————
 
 " HIM "输入指令：    ntstore show all                  查看所有商城的货物

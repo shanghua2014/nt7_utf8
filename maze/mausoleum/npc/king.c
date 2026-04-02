@@ -7,7 +7,7 @@ void sp_attack();
 void create()
 {
         set_name(HIB "秦始皇僵尸" NOR, ({ "qin shihuang", "king", "qin" }));
-        set("long", HIB "这曾是一位统一六国的王者，现在只是僵尸一个。\n" NOR);
+        set("long", HIB "这曾是一位统一六国的雪海，现在只是僵尸一个。\n" NOR);
         set("title", HIY "皇帝" NOR);
         set("attitude", "aggressive");
         set("str", 120);
@@ -70,15 +70,15 @@ void create()
                 "mar" : 30000,
         ]));
         set("drops", ([
-                "RA&LEGEND60" : 100, 
-                "RA&LEGEND60" : 100, 
-                "RA&LEGEND60" : 100, 
-                "RA&LEGEND70" : 50, 
-                "RA&LEGEND70" : 50, 
-                "RA&LEGEND70" : 50, 
-                "RA&MYTH100" : 1, 
-                "RA&MYTH100" : 2, 
-                "RA&MYTH100" : 3, 
+                "RA&LEGEND60" : 100,
+                "RA&LEGEND60" : 100,
+                "RA&LEGEND60" : 100,
+                "RA&LEGEND70" : 50,
+                "RA&LEGEND70" : 50,
+                "RA&LEGEND70" : 50,
+                "RA&MYTH100" : 1,
+                "RA&MYTH100" : 2,
+                "RA&MYTH100" : 3,
                 "FI&/clone/goods/resolve-scroll"   : 50,
                 "FI&/clone/tessera/rune27"   : 30,
                 "FI&/clone/tessera/rune28"   : 20,
@@ -126,7 +126,7 @@ void sp_attack()
         if( !enemies || sizeof(enemies) == 0 )
                 return;
         enemy = enemies[random(sizeof(enemies))];
-           obs=filter_array(all_inventory(environment(this_object())),(:query("id", $1) == "skeleton fighter":)); 
+           obs=filter_array(all_inventory(environment(this_object())),(:query("id", $1) == "skeleton fighter":));
         if( sizeof(obs) < 7 && !random(5) ) {
                 msg = HIY"$N展开手中的黑色幡布，顿时阴风呼号，惨雾弥漫，召唤出数个骷髅武士，\n"
                          "这些骷髅生前是秦皇身边的护卫，死后仍然受他驱策，惨啸着向$n扑来！\n"NOR;
@@ -161,7 +161,7 @@ void sp_attack()
                 default: msg= HIG "$N"HIG"脚一跺地，只见$n"HIG"脚边的地上快速生长出树藤紧紧包裹这$n"HIG"，$n"HIG"顿时呼吸不畅，头晕眼花。\n"NOR; break;
         }
         message_vision(msg,this_object(),enemy);
-        if( !random(20) ) enemy->unconcious(); 
+        if( !random(20) ) enemy->unconcious();
         enemy->receive_damage("qi",5000000+random(5000000),this_object());
         COMBAT_D->report_status(enemy);
         if( !enemy->is_busy() )

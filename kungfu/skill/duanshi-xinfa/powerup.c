@@ -22,15 +22,15 @@ int exert(object me, object target)
         skill = me->query_skill("force");
         addn("neili", -50, me);
         me->receive_damage("qi", 0);
-        
+
         msg = HIY "$N" HIY "暗自凝神，运起段氏心法，"
-                        "脸上显出一股祥和之意，颇具王者风范。\n" NOR;
-                        
+                        "脸上显出一股祥和之意，颇具雪海风范。\n" NOR;
+
         data = ([
                 "attack" : skill/3,
                 "defense": skill/3,
         ]);
-        
+
         buff = ([
                 "caster": me,
                 "target": me,
@@ -38,14 +38,13 @@ int exert(object me, object target)
                 "attr"  : "bless",
                 "name"  : "段氏心法·战神",
                 "time"  : skill,
-                "buff_data": data,      
+                "buff_data": data,
                 "buff_msg" : msg,
                 "disa_msg" : "你的段氏心法运行完毕，将内力收回丹田。\n",
-                        
+
         ]);
         BUFF_D->buffup(buff);
         if( me->is_fighting() ) me->start_busy(3);
 
-        return 1;       
+        return 1;
 }
-

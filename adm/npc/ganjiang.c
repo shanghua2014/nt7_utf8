@@ -140,7 +140,7 @@ void create()
                 "附魔技艺": (: ask_enchanting :),
                 "附魔技术": (: ask_enchanting :),
                 "enchanting": (: ask_enchanting :),
-                "套装"    : "绿化套装必须要有王者之心，如果给我王者之心的话，我就帮你绿化(dosuit <装备>)套装。",
+                "套装"    : "绿化套装必须要有雪海之晶，如果给我雪海之晶的话，我就帮你绿化(dosuit <装备>)套装。",
                 "升级套装": "升级套装必须要有鸿蒙灵气，指令格式upsuit <装备>",
         ]));
 
@@ -281,7 +281,7 @@ int accept_object(object me, object ob)
         }
         else if( query("id", ob) == "wangzhe zhixin" )
         {
-                message_vision("干将对$N说：有了王者之心，自造装备就可以绿化套装了(dosuit)，你想"
+                message_vision("干将对$N说：有了雪海之晶，自造装备就可以绿化套装了(dosuit)，你想"
                                "绿化套装什么道具？\n", me);
                 set_temp("paid/dosuit", 1, me);
                 destruct(ob);

@@ -6,58 +6,56 @@
 //
 //        The standard set of ANSI codes for mudlib use.
 /*
-155 6D m * SGR - Set Graphics Rendition (affects character attributes)
-         *        [0m = Clear all special attributes
-         *        [1m = Bold or increased intensity
-         *        [2m = Dim or secondary color on GIGI  (superscript on XXXXXX)
-                [3m = Italic                          (subscript on XXXXXX)
-         *        [4m = Underscore, [0;4m = Clear, then set underline only
-         *        [5m = Slow blink
-                [6m = Fast blink                      (overscore on XXXXXX)
-         *        [7m = Negative image, [0;1;7m = Bold + Inverse
-                [8m = Concealed (do not display character echoed locally)
-                [9m = Reserved for future standardization
-         *        [10m = Select primary font (LA100)
-         *        [11m - [19m = Selete alternate font (LA100 has 11 thru 14)
-                [20m = FRAKTUR (whatever that means)
-         *        [22m = Cancel bold or dim attribute only (VT220)
-         *        [24m = Cancel underline attribute only (VT220)
-         *        [25m = Cancel fast or slow blink attribute only (VT220)
-         *        [27m = Cancel negative image attribute only (VT220)
-         *        [30m = Write with black,   [40m = Set background to black (GIGI)
-         *        [31m = Write with red,     [41m = Set background to red
-         *        [32m = Write with green,   [42m = Set background to green
-         *        [33m = Write with yellow,  [43m = Set background to yellow
-         *        [34m = Write with blue,    [44m = Set background to blue
-         *        [35m = Write with magenta, [45m = Set background to magenta
-         *        [36m = Write with cyan,    [46m = Set background to cyan
-         *        [37m = Write with white,   [47m = Set background to white
+155 6D m*SGR-设置图形格式副本（影响字符属性）
+       *[0m=清除所有特殊属性
+       *[1m=粗体或增加的强度
+       *[2m=GIGI上的暗色或次色（XXXXXX上的上标）
+       [3m=斜体（XXXXXX上的下标）
+       *[4m=下划线，[0；4m=清除，然后仅设置下划线
+       *[5m=慢速闪烁
+       [6m=快速闪烁（XXXXXX上的覆盖）
+       *[7m=负片图像，[0；1；7m=粗体+反转
+       [8m=隐藏（不显示本地回显的字符）
+       [9m=保留用于未来标准化
+       *[10m=选择主字体（LA100）
+       *[11m-[19m=选择替代字体（LA100具有11到14）
+       [20m=FRAKTUR（无论是什么意思）
+       *[22m=仅取消粗体或暗淡属性（VT220）
+       *[24m=仅取消下划线属性（VT220）
+       *[25m=仅取消快速或慢速闪烁属性（VT220）
+       *[27m=仅取消负片图像属性（VT220）
+       *[30m=用黑色写入，[40m=将背景设置为黑色（GIGI）
+       *[31m=用红色写入，[41m=将背景设置为红色
+       *[32m=用绿色写入，[42m=将背景设置为绿色
+       *[33m=用黄色写入，[43m=将背景设置为黄色
+       *[34m=用蓝色书写，[44m=将背景设置为蓝色
+       *[35m=用洋红色写入，[45m=将背景设置为洋红色
+       *[36m=用青色写入，[46m=将背景设置为青色
+       *[37m=用白色写入，[47m=将背景设置为白色
 
-Minimum requirements for VT100 emulation:
-
-  [A       Sent by the up-cursor key (alternately ESC O A)
-  [B       Sent by the down-cursor key (alternately ESC O B)
-  [C       Sent by the right-cursor key (alternately ESC O C)
-  [D       Sent by the left-cursor key (alternately ESC O D)
-  OP       PF1 key sends ESC O P
-  OQ       PF2 key sends ESC O Q
-  OR       PF3 key sends ESC O R
-  OS       PF3 key sends ESC O S
-  [c       Request for the terminal to identify itself
-  [?1;0c   VT100 with memory for 24 by 80, inverse video character attribute
-  [?1;2c   VT100 capable of 132 column mode, with bold+blink+underline+inverse
-
-  [0J     Erase from current position to bottom of screen inclusive
-  [1J     Erase from top of screen to current position inclusive
-  [2J     Erase entire screen (without moving the cursor)
-  [0K     Erase from current position to end of line inclusive
-  [1K     Erase from beginning of line to current position inclusive
-  [2K     Erase entire line (without moving cursor)
-  [12;24r   Set scrolling region to lines 12 thru 24.  If a linefeed or an
-            INDex is received while on line 24, the former line 12 is deleted
-            and rows 13-24 move up.  If a RI (reverse Index) is received while
-            on line 12, a blank line is inserted there as rows 12-13 move down.
-            All VT100 compatible terminals (except GIGI) have this feature.
+VT100模拟的最低要求：
+       [A通过向上光标键发送（交替ESC O A）
+       [B通过向下光标键发送（交替ESC O B）
+       [C通过右光标键发送（交替ESC O C）
+       [D由左光标键发送（交替ESC O D）
+       OP PF1键发送ESC O P
+       OQ PF2键发送ESC O Q
+       OR PF3键发送ESC O R
+       OS PF3键发送ESC O S
+       [c请求终端识别自己
+       [？1；0c VT100，具有24 x 80的内存，反向视频字符属性
+       [？1；2c VT100支持132列模式，粗体+闪烁+下划线+反转
+       [0J从当前位置到屏幕底部（包括屏幕底部）擦除
+       [1J从屏幕顶部擦除到当前位置（包括当前位置）
+       [2J擦除整个屏幕（不移动光标）
+       [0K从当前位置到行尾（包括行尾）删除
+       [1K从行首到当前位置（包括首尾）擦除
+       [2K删除整行（不移动光标）
+       [12；24r将滚动区域设置为第12行到第24行。如果换行或
+       在第24行接收INDex时，删除前一行12
+       第13-24行向上移动。如果收到RI（反向索引），而
+       在第12行上，当行12-13向下移动时，在那里插入空行。
+       所有VT100兼容终端（GIGI除外）都具有此功能。
 */
 
 #ifndef ANSI_H

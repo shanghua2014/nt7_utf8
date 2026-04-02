@@ -8,7 +8,7 @@ int do_register(string arg);
 void create()
 {
         set("short", "泥潭注册室");
-        set("long", "\n这里是新玩家进行注册的地方，请您使用指令 " HIC "register " NOR "加上你的完\n"
+        set("long", "\n这里是新玩家进行注册的地方，请您使用指令 " HIY "register " NOR "加上你的完\n"
                     "整及真实" HIC " email " NOR "地址进行注册。\n\n"
                     "    请务必认真注册你的电子邮件地址，" HIR "电子邮件地址是保障你一切\n"
                     "权益的依据" NOR "，包括你密码的丢失情况下，我们通过你注册的信箱来确\n"

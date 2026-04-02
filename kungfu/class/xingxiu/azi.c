@@ -160,7 +160,8 @@ int accept_kill(object me)
 { 
         object ob;
         object ob1;
-        if( is_fighting()) return;
+        if (is_fighting())
+                return 0;
         if( query_temp("you/done", me) == 1 && query_temp("xiaofeng/done", me) == 1 )
         {
                 this_object()->kill_ob(me);

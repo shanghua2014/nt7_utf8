@@ -211,7 +211,7 @@ int main(object me, string arg)
                                       ob->query_jingmai_buff("fatal_blow")+"%","90%",ob->query_jingmai_buff("add_skill"),1200);
 
                         //sp += HIC "≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
-                        sp += HIC "≡" HIY "------------------------------==王者归来==------------------------------" HIC "≡\n\n" NOR;
+                        sp += HIC "≡" HIY "------------------------------==雪海顠香==------------------------------" HIC "≡\n\n" NOR;
                         sp += sprintf(HIG + (ob == me ? "你" : ob->name()) + HIG "在%s里已经历练了 " NOR + HIC "%s\n" NOR,
                                       LOCAL_MUD_NAME(), time_period(query("online_time", ob)));
 
@@ -426,7 +426,7 @@ int main(object me, string arg)
                                       ob->query_yuanshen_buff("fatal_blow")+"%","90%",ob->query_yuanshen_buff("add_skill"),1200);
 
                         //sp += HIC "≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
-                        sp += HIC "≡" HIY "------------------------------==王者归来==------------------------------" HIC "≡\n\n" NOR;
+                        sp += HIC "≡" HIY "------------------------------==雪海顠香==------------------------------" HIC "≡\n\n" NOR;
                         sp += sprintf(HIG + (ob == me ? "你" : ob->name()) + HIG "在%s里已经历练了 " NOR + HIC "%s\n" NOR,
                                       LOCAL_MUD_NAME(), time_period(query("online_time", ob)));
 
@@ -641,7 +641,7 @@ int main(object me, string arg)
                                       ob->query_skillmix_buff("fatal_blow")+"%","90%",ob->query_skillmix_buff("add_skill"),1200);
 
                         //sp += HIC "≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
-                        sp += HIC "≡" HIY "------------------------------==王者归来==------------------------------" HIC "≡\n\n" NOR;
+                        sp += HIC "≡" HIY "------------------------------==雪海顠香==------------------------------" HIC "≡\n\n" NOR;
                         sp += sprintf(HIG + (ob == me ? "你" : ob->name()) + HIG "在%s里已经历练了 " NOR + HIC "%s\n" NOR,
                                       LOCAL_MUD_NAME(), time_period(query("online_time", ob)));
 
@@ -856,7 +856,7 @@ int main(object me, string arg)
                                       ob->query_ability_buff("fatal_blow")+"%","90%",ob->query_ability_buff("add_skill"),1200);
 
                         //sp += HIC "≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
-                        sp += HIC "≡" HIY "------------------------------==王者归来==------------------------------" HIC "≡\n\n" NOR;
+                        sp += HIC "≡" HIY "------------------------------==雪海顠香==------------------------------" HIC "≡\n\n" NOR;
                         sp += sprintf(HIG + (ob == me ? "你" : ob->name()) + HIG "在%s里已经历练了 " NOR + HIC "%s\n" NOR,
                                       LOCAL_MUD_NAME(), time_period(query("online_time", ob)));
 
@@ -1071,7 +1071,7 @@ int main(object me, string arg)
                                       ob->query_equipment_buff("fatal_blow")+"%","90%",ob->query_equipment_buff("add_skill"),1200);
 
                         //sp += HIC "≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
-                        sp += HIC "≡" HIY "------------------------------==王者归来==------------------------------" HIC "≡\n\n" NOR;
+                        sp += HIC "≡" HIY "------------------------------==雪海顠香==------------------------------" HIC "≡\n\n" NOR;
                         sp += sprintf(HIG + (ob == me ? "你" : ob->name()) + HIG "在%s里已经历练了 " NOR + HIC "%s\n" NOR,
                                       LOCAL_MUD_NAME(), time_period(query("online_time", ob)));
 
@@ -1286,7 +1286,7 @@ int main(object me, string arg)
                                       ob->query_talent_buff("fatal_blow")+"%","90%",ob->query_talent_buff("add_skill"),1200);
 
                         //sp += HIC "≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
-                        sp += HIC "≡" HIY "------------------------------==王者归来==------------------------------" HIC "≡\n\n" NOR;
+                        sp += HIC "≡" HIY "------------------------------==雪海顠香==------------------------------" HIC "≡\n\n" NOR;
                         sp += sprintf(HIG + (ob == me ? "你" : ob->name()) + HIG "在%s里已经历练了 " NOR + HIC "%s\n" NOR,
                                       LOCAL_MUD_NAME(), time_period(query("online_time", ob)));
 
@@ -1498,7 +1498,7 @@ int main(object me, string arg)
                       ob->query_all_buff("fatal_blow")+"%","90%",ob->query_all_buff("add_skill"),1200);
 
         //sp += HIC "≡" HIY "------------------------------------------------------------------------" HIC "≡\n" NOR;
-        sp += HIC "≡" HIY "------------------------------==王者归来==------------------------------" HIC "≡\n\n" NOR;
+        sp += HIC "≡" HIY "------------------------------==雪海顠香==------------------------------" HIC "≡\n\n" NOR;
         sp += sprintf(HIG + (ob == me ? "你" : ob->name()) + HIG "在%s里已经历练了 " NOR + HIC "%s\n" NOR,
                         LOCAL_MUD_NAME(), time_period(query("online_time", ob)));
 

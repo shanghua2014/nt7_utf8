@@ -169,7 +169,6 @@ void greeting(object ob)
 int ask_for_xkd()
 {
         object who = this_player();
-        object ling1,ling2;
         object myenv;        
         object* inv;
         int i;

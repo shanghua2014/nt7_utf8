@@ -135,22 +135,22 @@ LONG);
 void init()
 {
 /*
-        object ob; 
+        object ob;
         ::init();
 
-        if (interactive(ob = this_player()) && ! is_fighting()) 
-        if (interactive(ob = this_player()) && ! is_fighting() && ! query("welcomegift", ob)) 
+        if (interactive(ob = this_player()) && ! is_fighting())
+        if (interactive(ob = this_player()) && ! is_fighting() && ! query("welcomegift", ob))
         {
-                remove_call_out("greeting"); 
-                call_out("greeting", 1, ob); 
+                remove_call_out("greeting");
+                call_out("greeting", 1, ob);
         }
 */
 }
 
-void greeting(object ob) 
+void greeting(object ob)
 {
-        if ( ! ob || environment(ob) != environment() ) return; 
-        say( CYN "南贤微微一笑道：这位" + RANK_D->query_respect(ob) + CYN + "是新人吧，我这里有个礼物送给你(ask nan xian about 礼物)。\n" NOR); 
+        if ( ! ob || environment(ob) != environment() ) return;
+        say( CYN "南贤微微一笑道：这位" + RANK_D->query_respect(ob) + CYN + "是新人吧，我这里有个礼物送给你(ask nan xian about 礼物)。\n" NOR);
 }
 
 // 接受询问
@@ -367,26 +367,26 @@ mixed accept_ask(object who, string topic)
         if (topic == "修罗道")
         {
 
-                if( query("int", me)<32 || 
-                    query("con", me)<32 || 
-                    query("str", me)<32 || 
+                if( query("int", me)<32 ||
+                    query("con", me)<32 ||
+                    query("str", me)<32 ||
                     query("dex", me)<32 )
                     return "你的先天属性还不足以修炼修罗道，我看你还是先回去吧。\n";
-        
+
                 if( query("reborn/times", me)<3 )
                         return "哼，没事别来烦我，走开！\n";
-                
+
                 if( me->query_skill("yinyang-shiertian",1) && query("reborn/times", me)<4 )
-                        return "阁下武功已经独步天下，恭喜恭喜！\n";                    
+                        return "阁下武功已经独步天下，恭喜恭喜！\n";
 
                 if (me->query_skill("lunhui-sword",1))
                         return "哼，凡夫俗子，竟然如此贪心！\n";
-                                
+
                 // 已经完成任务
-                if( query("lunhui-sword_quest/xiuluodao/finish", me) && 
+                if( query("lunhui-sword_quest/xiuluodao/finish", me) &&
                     me->query_skill("xiuluodao", 1))
                         return "呵呵，多亏你上次帮我，这无敌剑气我已经修炼成功了。\n";
-        
+
                 // 分配任务
                 if( !query("lunhui-sword_quest/xiuluodao/give_quest", me) )
                 {
@@ -399,32 +399,32 @@ mixed accept_ask(object who, string topic)
                         me->save();
                         return "事成之后，我会传你几招武功防身！";
                 }
-                
+
                 // 完成任务
-                
+
                 if (! objectp(ob_hlp = present("qinggang jian", me)))
                         return "怎么样，1把青罡剑搜集够了吗？\n";
-                        
+
                 if (base_name(ob_hlp) != "/clone/weapon/qinggang-jian")
                         return "怎么样，1把青罡剑搜集够了吗？\n";
 
                 destruct(ob_hlp);
-                
+
                 command("hehe");
                 command("nod");
                 command("say 既然你帮我了这个忙，我就顺便传你一招，相信你以后用得着 ...");
-                
+
                 message_sort(HIC "\n$N" HIC "走上前去，在$n" HIC "耳边悄悄说了几句，然后又拿出一本书，指指点点，"
                              "$n" HIC "不住地点头，忽而眉头深锁，忽而低头沉思 ……\n良久，$n" HIC "大笑一声，似乎"
                              "对刚才的疑虑有所顿悟。\n", this_object(), me);
-                                        
+
                 tell_object(me, HIG "恭喜你领悟了「修罗道」剑法，目前等级为10级。\n");
                 me->set_skill("xiuluodao", 10);
                 set("lunhui-sword_quest/xiuluodao/finish", 1, me);
-                
-                return "明白了？";              
+
+                return "明白了？";
         }
-        
+
 
 
         return ULTRA_QUEST_D->accept_ask(this_object(), who, topic);
@@ -818,7 +818,7 @@ mixed ask_buchang()
 
         set("gifter/buchang", 1, me);
         me->save();
-        tell_object(me, HIY "\n你领取了(" HIM "当机补偿" NOR + HIY ")，祝你在王者归来里玩的愉快！\n" NOR);
+        tell_object(me, HIY "\n你领取了(" HIM "当机补偿" NOR + HIY ")，祝你在雪海顠香里玩的愉快！\n" NOR);
         return 1;
 }
 
@@ -835,20 +835,20 @@ mixed ask_duanwu()
 
         if( !MEMBER_D->is_member(id) ) // 非冲值用户肯定不是会员
                 return "你还是先成为年度会员后再来领取礼物。";
-                
+
         endtime  = (int)MEMBER_D->db_query_member(id, "endtime");
         if( endtime < 0 ) endtime = 0; // 非会员
         if( endtime - time() < 15552000 )
                 return "你还是先成为年度会员后再来领取礼物。";
-        
+
         if( query("jingmai/finish", me) )
         {
                 tell_object(me, HIC "南贤对你说道：你如今大小周天经脉已经贯通了，无需老夫帮忙了，不过老夫可以送你一些NT币！" NOR);
-                MEMBER_D->db_pay_member(id, 50); 
+                MEMBER_D->db_pay_member(id, 50);
                 set("gift_2013/duanwu", 1, me);
                 return 1;
         }
-                      
+
         delete("jingmai", me);
         set("jingmai/finish", 1, me);
         set("breakup", 1, me);
@@ -857,13 +857,13 @@ mixed ask_duanwu()
         addn("jm/int", 1, me);
         addn("str", 1, me);
         addn("jm/str", 1, me);
-        
+
         tell_object(me, HIR "只见南贤突然出手在你全身各大要穴连点一通，然后看着你，微笑不语。\n" NOR);
         tell_object(me, HIC "你顿时感觉有股洪流在体内顺着周天经脉循环起来。\n" NOR);
         tell_object(me, HIR "恭喜你！你的大小周天经脉已然贯通！\n" NOR);
         return 1;
-}               
-                
+}
+
 mixed ask_reborn()
 {
         object ob, who, weapon;

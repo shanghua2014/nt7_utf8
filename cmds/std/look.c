@@ -16,7 +16,7 @@
 inherit F_CLEAN_UP;
 
 #include <locate.h>
-int look_room(object me, object env, int brief);
+varargs int look_room(object me, object env, int brief, int direct_receive);
 int look_item(object me, object obj);
 int look_living(object me, object obj);
 int look_room_item(object me, string arg);
@@ -600,7 +600,7 @@ void realtime_map(object me,object env)
         return;
 }
 
-int look_room(object me, object env, int brief)
+varargs int look_room(object me, object env, int brief, int direct_receive)
 {
         int i;
         object room;
@@ -667,7 +667,11 @@ int look_room(object me, object env, int brief)
         if( query("env/show_way", me) && !brief )
                 realtime_map(me, env);
 
-        tell_object(me, str);
+        /* direct_receive：直接 receive，不经 tell_object→receive_message 的 written/清行改写，登录后进房多行 long 才能完整显示 */
+        if( !undefinedp(direct_receive) && direct_receive )
+                me->receive_message("telnet", str);
+        else
+                tell_object(me, str);
 
         // 以下部分为显示地图
         if( query("env/show_map", me) && !me->is_fighting() )

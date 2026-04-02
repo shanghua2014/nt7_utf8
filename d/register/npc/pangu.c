@@ -5,6 +5,7 @@
 inherit NPC;
 
 void greeting(object me);
+void deferred_greeting(object me);
 
 void create()
 {
@@ -32,6 +33,15 @@ void init()
         if (! objectp(me) || ! userp(me))
                 return;
 
+        /* 勿在玩家指令栈内同步执行 greeting（含 NPC command/give）。
+         * 例如 reg 时 move 进房会嵌套在此，易导致 Web 端卡住，需再输入一条才刷新。 */
+        call_out("deferred_greeting", 0, me);
+}
+
+void deferred_greeting(object me)
+{
+        if (! objectp(me) || ! userp(me))
+                return;
         greeting(me);
 }
 

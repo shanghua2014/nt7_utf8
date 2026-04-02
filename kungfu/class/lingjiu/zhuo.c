@@ -1,5 +1,5 @@
 // Copyright (C) 2003, by Lonely. All rights reserved.
-// This software can not be used, copied, or modified 
+// This software can not be used, copied, or modified
 // in any form without the written permission from authors.
 
 #include <ansi.h>;
@@ -31,7 +31,7 @@ LONG );
         set("int", 30);
         set("con", 30);
         set("dex", 30);
-    
+
         set("qi", 4500);
         set("max_qi", 4500);
         set("jing", 2200);
@@ -100,7 +100,7 @@ int recognize_apprentice(object ob, string skill)
         {
                 command("hmm");
                 command("say 恐怕这灵鹫宫里，还轮不到你说话。");
-                return -1; 
+                return -1;
 
         }
 
@@ -135,14 +135,14 @@ mixed ask_me()
         if( query("can_perform/zhougong-jian/mang", me) )
                 return "我已经说得够多了，别跟我纠缠不休。";
 
-        if( query("family/family_name", me) != "灵鹫宫" && 
+        if( query("family/family_name", me) != "灵鹫宫" &&
            query("family/family_name", me) != "一字慧剑门" )
                 return "哼！不知阁下这话是什么意思？";
 
         if (me->query_skill("zhougong-jian", 1) < 1)
                 return "你周公剑都未曾练过，还谈什么绝招。";
 
-        if( query("family/family_name", me) == "灵鹫宫" && 
+        if( query("family/family_name", me) == "灵鹫宫" &&
            query("family/gongji", me)<1000 )
                 return "主公有令，不得传功给无功劳的弟子。";
 
@@ -157,7 +157,7 @@ mixed ask_me()
 
         message_sort(HIY "$n" HIY "更不答话，拔出腰间佩剑，长剑一"
                      "挺，剑尖上突然生出半尺吞吐不定的青芒。当真"
-                     "气势如虹，一展王者风范。$N" HIY "的目光顿"
+                     "气势如虹，一展雪海风范。$N" HIY "的目光顿"
                      "时一亮，似乎明白了什么。\n" NOR, me,
                      this_object());
         command("hmm");

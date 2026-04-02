@@ -1,4 +1,4 @@
-// This program is a part of NITAN MudLIB 
+// This program is a part of NITAN MudLIB
 // redl 2013/9
 inherit NPC;
 #include <ansi.h>
@@ -634,7 +634,7 @@ mapping *book_exp = ({
                         "    知此两者亦稽式。\n"
                         "    常知稽式，是谓「玄德」。\n"
                         "    「玄德」深矣，远矣，与物反矣，然后乃至大顺。",
-                        "    江海之所以能为百谷王者，\n"
+                        "    江海之所以能为百谷雪海，\n"
                         "    以其善下之，故能为百谷王。\n"
                         "    是以圣人欲上民，必以言下之﹔\n"
                         "    欲先民，必以身后之。\n"
@@ -1097,7 +1097,7 @@ mapping *book_sk = ({
 void select_book()
 {
         if (query("select_book")) return;
-        if (random(100)>33) 
+        if (random(100)>33)
         {
                 set("select_book/type", "exp");
                 set("select_book/index", random(sizeof(book_exp)));
@@ -1229,7 +1229,7 @@ int drop_baby2(object me)
         {
                 return 1;
         }
-        message_vision(append_color(YEL  "$N正在得意，霎时一个小铃铛飞过来把$N直接砸晕。\n" 
+        message_vision(append_color(YEL  "$N正在得意，霎时一个小铃铛飞过来把$N直接砸晕。\n"
                                                                          "清洁大妈和看门大叔溜进来，小心翼翼地把$N抬了出去...\n" NOR, YEL), me);
         room = load_object("/u/redl/school/caochang");
         if (objectp(room)) {
@@ -1246,7 +1246,7 @@ int gift_babys()
         int p = query("select_book/lv");
         int flag = 0;
         int rnd;
-        
+
         if (!count) return 1;
         if (query("select_book/type")=="exp") flag = 1;
         while (count--)
@@ -1295,7 +1295,7 @@ int start3(int stp, int idxbaby)
                                 if (objectp(baby)) {
                                         this_object()->command("say " + query("name", baby) + (random(2) ? ".." : "？"));
                                         delete_temp("school/bad", baby);
-                                        switch (random(8)) 
+                                        switch (random(8))
                                         {
                                                 case 0 :
                                                         baby->command("say " + query("name", baby) + "在此！");
@@ -1405,19 +1405,19 @@ int ask_starttime()
 {
         int i;
         object me = this_player();
-        
+
         if (this_object()->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR);
                 return 0;
         }
 
         if (me->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR);
                 return 0;
         }
-        else 
+        else
                 me->start_busy(3);
 
         i = START_INTERVAL * 60 - (time() - query("start_time"));
@@ -1433,41 +1433,41 @@ int ask_pay()
 
         if (this_object()->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR);
                 return 0;
         }
-        
+
         if (!playerp(me))
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：你不是玩家？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：你不是玩家？ \n" + NOR);
                 return 0;
         }
 
         if (!query("couple/child_id", me))
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：你有孩子吗？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：你有孩子吗？ \n" + NOR);
                 return 0;
         }
 
       ob = present(query("couple/child_id", me), environment());
         if( !ob || !objectp(ob) || base_name(ob)!="/clone/user/baby" )
         {
-                        tell_object(me, CYN + name() + "皱眉对你说道：把你的孩子带到我跟前来瞧瞧。\n" + NOR); 
+                        tell_object(me, CYN + name() + "皱眉对你说道：把你的孩子带到我跟前来瞧瞧。\n" + NOR);
                         return 0;
         }
-        
+
         if (me->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR);
                 return 0;
         }
-        else 
+        else
                 me->start_busy(3);
 
         amount = query_temp("school/pay", ob);
         if (!amount) amount = 0;
         amount /= 10000;
-        
+
         message_vision(append_color(NOR + "$N对$n说道：你孩子的学费余额有「" + chinese_number(amount) + "」两黄金。\n" + NOR, CYN), this_object(), me);
         return 1;
 
@@ -1478,19 +1478,19 @@ int ask_skills()
         int i, j = 0;
         string *ks, msg;
         object me = this_player();
-        
+
         if (this_object()->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR);
                 return 0;
         }
 
         if (me->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR);
                 return 0;
         }
-        else 
+        else
                 me->start_busy(3);
 
         msg = name() + NOR + CYN + "悄悄告诉你：宝宝可以向我学习这些技能..\n";
@@ -1505,7 +1505,7 @@ int ask_skills()
                 }
         }
         msg += "\n" + NOR;
-        tell_object(me, append_color(msg, CYN)); 
+        tell_object(me, append_color(msg, CYN));
         return 1;
 }
 
@@ -1518,7 +1518,7 @@ int ask_reload()
         command("ok " + query("id", me));
                 return 1;
         }
-        tell_object(me, CYN + name() + "对着你哈哈大笑，笑地腰都直不起来了。 \n" + NOR); 
+        tell_object(me, CYN + name() + "对着你哈哈大笑，笑地腰都直不起来了。 \n" + NOR);
         return 1;
 }
 
@@ -1540,7 +1540,7 @@ void create()
         set("per", 30);
         set("kar", 30);
         set("level",50);
-        
+
         set("max_qi", 100000);
         set("eff_qi", 100000);
         set("qi", 100000);
@@ -1647,13 +1647,13 @@ void create()
                 "skill" : (: ask_skills :),
                 "hi" : (: ask_reload :),
         ]));
-        
+
         setup();
         carry_object("/kungfu/class/quanzhen/obj/magrobe")->wear();
         carry_object(__DIR__"obj/anklechains")->wear();
         carry_object(__DIR__"obj/earrings")->wear();
         this_object()->apply_condition("die_guard", 999999999);
-        set_temp("nopoison", 3, this_object()); 
+        set_temp("nopoison", 3, this_object());
         set("start_time", time() - 86400);
         chk_starttime();
 }
@@ -1662,7 +1662,7 @@ void fight_ob(object ob)
 {
        ob->remove_all_enemy(1);
        this_object()->remove_all_enemy(1);
-       tell_object(ob,CYN + name() + "用一双无辜的媚眼望着你，眼泪都快要掉下来了。\n" + NOR + "你赶紧手忙脚乱地停了下来。\n" + NOR); 
+       tell_object(ob,CYN + name() + "用一双无辜的媚眼望着你，眼泪都快要掉下来了。\n" + NOR + "你赶紧手忙脚乱地停了下来。\n" + NOR);
        return;
 }
 
@@ -1670,14 +1670,14 @@ int accept_kill(object who)
 {
        who->remove_all_enemy(1);
        this_object()->remove_all_enemy(1);
-       return notify_fail(CYN + name() + "对著你眨眨眼，露出神秘的微笑 ... \n" + NOR + "你发现自己怎么也舍不得下手！\n" + NOR); 
+       return notify_fail(CYN + name() + "对著你眨眨眼，露出神秘的微笑 ... \n" + NOR + "你发现自己怎么也舍不得下手！\n" + NOR);
 }
 
 int accept_fight(object who)
 {
        who->remove_all_enemy(1);
        this_object()->remove_all_enemy(1);
-       return notify_fail(CYN + name() + "对著你眨眨眼，露出神秘的微笑 ... \n" + NOR + "你发现自己怎么也舍不得下手！\n" + NOR); 
+       return notify_fail(CYN + name() + "对著你眨眨眼，露出神秘的微笑 ... \n" + NOR + "你发现自己怎么也舍不得下手！\n" + NOR);
 }
 
 int accept_ansuan(object who)
@@ -1731,61 +1731,61 @@ int accept_object(object me, object obj)
 
         if (this_object()->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：没见我正忙着吗？ \n" + NOR);
                 return 0;
         }
-        
+
         if (!playerp(me))
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：你不是玩家？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：你不是玩家？ \n" + NOR);
                 return 0;
         }
 
         if (!query("money_id", obj))
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：我只收「钱」！ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：我只收「钱」！ \n" + NOR);
                 return 0;
         }
-        
+
         if (obj->value() < 100000000)
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：不懂规矩吗？ask xue er about all\n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：不懂规矩吗？ask xue er about all\n" + NOR);
                 return 0;
         }
 
         if (!query("couple/child_id", me))
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：你有孩子吗？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：你有孩子吗？ \n" + NOR);
                 return 0;
         }
 
       ob = present(query("couple/child_id", me), environment());
         if( !ob || !objectp(ob) || base_name(ob)!="/clone/user/baby" )
         {
-                        tell_object(me, CYN + name() + "皱眉对你说道：把你的孩子带到我跟前来瞧瞧。\n" + NOR); 
+                        tell_object(me, CYN + name() + "皱眉对你说道：把你的孩子带到我跟前来瞧瞧。\n" + NOR);
                         return 0;
         }
-        
+
         if (me->is_busy())
         {
-                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR); 
+                tell_object(me, CYN + name() + "皱眉对你说道：先把你的事儿忙完再说好不？ \n" + NOR);
                 return 0;
         }
-        else 
+        else
                 me->start_busy(3);
 
         me->command("point " + query("id", ob) + " 这是" + (query("gender", ob)=="男性" ? "犬子" : "小女"));
         ob->command("bow xue_er " + (random(2) ? "晚辈" : "末学") + (random(2) ? "参见" : "拜见") + (random(2) ? "先生" : "老师"));
         this_object()->command("pat " + query("id", ob));
         addn_temp("school/pay", obj->value(), ob);
-        destruct(obj); 
-        return 1; 
+        destruct(obj);
+        return 1;
 }
 
 
 int recognize_apprentice(object me, string skill)
 {
-        if (base_name(me)!="/clone/user/baby") 
+        if (base_name(me)!="/clone/user/baby")
         {
                 message_vision(NOR + name() + "对$N摇头道：我只教宝宝，你算什么东西？\n" NOR, me);
                 return -1;
@@ -1799,5 +1799,3 @@ int recognize_apprentice(object me, string skill)
         message_vision(append_color(NOR + "$n向$N请教「" + to_chinese(skill) + "」的疑问。\n" + NOR, NOR), this_object(), me);
         return 1;
 }
-
-

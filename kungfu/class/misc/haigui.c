@@ -89,7 +89,6 @@ int receive_damage(string type, int damage, object who)
 {
         object ob, weapon, armor, armor2;
         string money;
-        int amount;
         
         string *gift = ({
                 "/clone/fam/pill/puti1",

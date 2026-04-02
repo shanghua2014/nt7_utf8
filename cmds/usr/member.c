@@ -15,7 +15,7 @@ int main(object me, string arg)
         string me_id, tar_id;
         int amount;
 
-        if( time()-query_temp("last_member", me)<3 && 
+        if( time()-query_temp("last_member", me)<3 &&
             arg != "?" && ! wizardp(me))
                 return notify_fail("系统忙，请稍后再试！\n");
 
@@ -165,10 +165,10 @@ int help (object me)
 输入指令： member show payinfo                  显示历史充值交费信息
 输入指令： member show buyinfo                  显示历史购买物品信息
 输入指令： member show zhuaninfo                显示历史转帐记录信息
-输入指令： member show goods                    显示王者商店出售物品
+输入指令： member show goods                    显示雪海商店出售物品
 输入指令： member check <id>                    巫师指令检查会员信息
 输入指令： member stats                         列出所有会员名单信息
-输入指令： member zhuan <amount> to <id>        转帐王者币给其他的ID
+输入指令： member zhuan <amount> to <id>        转帐雪海币给其他的ID
 
 " WHT "——————————————————————————————————
 " HIC "淘宝冲值链接地址:

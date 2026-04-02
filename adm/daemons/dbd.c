@@ -14,7 +14,6 @@ public string query_save_file() { return DATA_DIR "dbd"; }
 
 public string *sort_mapping(mapping mp, int flag)
 {
-        string key_mp;
         string *result_mp, *temp_s1, *temp_s2, *temp_s3;
         string *str_temp;
         int i;

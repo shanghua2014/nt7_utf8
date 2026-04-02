@@ -6,7 +6,7 @@ int is_snake(){return 1;}
 void create()
 {
         set_name(HIY "毒蛇王" NOR, ({ "dushe wang", "dushe", "wang" }));
-        set("long", RED "这是毒蛇中的王者，体形巨大，剧毒无比。\n" NOR);
+        set("long", RED "这是毒蛇中的雪海，体形巨大，剧毒无比。\n" NOR);
 
         set("age", 90);
         set("str", 300);
@@ -46,7 +46,7 @@ void create()
                 set("oblist", ([
                         "/clone/fam/gift/str3" : 2,
                         "/clone/fam/gift/lan-feihun3" : 2,
-                        "/clone/armor/moling-zhiyi3" : 3,                        
+                        "/clone/armor/moling-zhiyi3" : 3,
                         "/clone/armor/shenwu-xiangquan":20,
                         "/clone/armor/shenwu-xiangquan2":20,
                         "/clone/armor/shenwu-xiangquan3":30,

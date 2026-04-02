@@ -128,7 +128,7 @@ mixed ask_gift1()
         if( query("gifter/which_day", me) == td )
                 return "你今天已经领过礼物了。";
 
-        tell_object(me, HIY "\n你领取了一个今天的礼物(" HIM "天师护身符" NOR + HIY ")，祝你在王者归来里玩的愉快！\n" NOR);
+        tell_object(me, HIY "\n你领取了一个今天的礼物(" HIM "天师护身符" NOR + HIY ")，祝你在雪海顠香里玩的愉快！\n" NOR);
 
         ob = new("/clone/goods/tianshi-charm");
         ob->move(me, 1);
@@ -175,7 +175,7 @@ mixed ask_gift2()
 
         set("gifter/monfee1", 1, me);
 
-        tell_object(me, HIY "\n你领取了一个月的(" HIM "会员体验" NOR + HIY ")，祝你在王者归来里玩的愉快！\n" NOR);
+        tell_object(me, HIY "\n你领取了一个月的(" HIM "会员体验" NOR + HIY ")，祝你在雪海顠香里玩的愉快！\n" NOR);
 
         return 1;
 }

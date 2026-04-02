@@ -25,7 +25,7 @@ string *lonelysword = ({
 void create()
 {
         set_name("高处不胜寒", ({ "gaochu bushenghan" }));
-        set("title", HIY "王者麾下灭天骑士团" NOR "破天王");
+        set("title", HIY "雪海麾下灭天骑士团" NOR "破天王");
         set("nickname",HIR "天地交征" NOR);
         set("long", "别惹！你惹不起！\n" );
         set("gender", "男性");
@@ -40,7 +40,7 @@ void create()
         set("qi", 100000);
         set("max_jing", 100000);
         set("jing", 100000);
-        set("neili", 100000); 
+        set("neili", 100000);
         set("max_neili", 100000);
         set("jiali", 5000);
         set("score", 100000000);

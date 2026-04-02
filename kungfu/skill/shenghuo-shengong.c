@@ -33,7 +33,7 @@ int practice_skill(object me)
         return notify_fail("圣火神功只能用学(learn)的来增加熟练度。\n");
 }
 
-mixed hit_ob(object me, object victim, int damage_bonus)
+mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 {
         int lvl, i;
         int flvl, attack_time;
@@ -50,7 +50,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
         ||  (string)query("skill_type", weapon) != "sword"
         ||  flvl < 140
         ||  query_temp("shenghuo-ling/hit", me)
-        ||  query("neili") < 200, me)
+        ||  query("neili", me) < 200)
                 return 0;
 
         attack_time = (int)(me->query_skill("shenghuo-ling", 1) / 40);
@@ -80,6 +80,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
                  return 1;
         }
 
+        return 0;
 }
 
 string exert_function_file(string func)

@@ -332,7 +332,7 @@ public int db_card_pay(object me, string CardSn, string CardPass)
                 MEMBER_D->db_create_member(me, money);
 
 
-        tell_object(me, HIG "恭喜！王者币(NT)充值成功，充值面额" + HIR + sprintf("%d", value) +
-                        HIG "元，获得 " + HIR + sprintf("%d", money) + HIG + " 王者币(NT)。\n" NOR);
+        tell_object(me, HIG "恭喜！雪海币(NT)充值成功，充值面额" + HIR + sprintf("%d", value) +
+                        HIG "元，获得 " + HIR + sprintf("%d", money) + HIG + " 雪海币(NT)。\n" NOR);
         return 1;
 }

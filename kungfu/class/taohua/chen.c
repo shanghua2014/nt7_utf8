@@ -131,7 +131,7 @@ void kill_ob (object ob)
 void die()
 {
         object obj, me;
-        int i, flag;
+        int flag;
 
         flag = 0;
         me = this_object();

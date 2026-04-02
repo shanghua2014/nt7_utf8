@@ -13,7 +13,7 @@ protected mapping all_others_db = ([
 ]);
 
 protected mapping stations = ([
-        "127.0.0.1" : "《泥潭·王者归来》",
+        "127.0.0.1" : "《泥潭·雪海顠香》",
 ]);
 
 #ifndef DATABASE
