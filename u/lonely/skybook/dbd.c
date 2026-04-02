@@ -143,7 +143,7 @@ int do_crave(object me, string arg)
 
         if (! me->query("luck_number"))
         {
-                tell_object(me, "你还没有注册呢！输入指令 help reg 查看注册信息！\n");
+                tell_object(me, "你还没有注册呢！输入指令 " GRN "help reg" NOR HIC " 查看注册信息！\n");
                 return 1;
         }       
         if (sizeof(arg) > 60)

@@ -308,14 +308,14 @@ mapping gift_list = ([
         "1"   :   ([ "达成条件" : "了解如何开始玩游戏",
                      "条件标识" : "newbie_mygift/help",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 help start 查看相关资讯",
+                     "条件描述" : "输入指令 " GRN "help start" NOR HIC " 查看相关资讯",
                      "奖励描述" : "/clone/goods/zhufu_cloth:1,neili:1000",
                      "下个奖励" : "2", ]),
 
         "2"   :   ([ "达成条件" : "查看自己的方位",
                      "条件标识" : "newbie_mygift/map",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 map 查看自己所在方位\n"
+                     "条件描述" : "输入指令 " GRN "map" NOR HIC " 查看自己所在方位\n"
                                   HIR "              提示：地图中蓝色底色位置为你当前所在位置。" NOR,
                      "奖励描述" : "/clone/goods/zhufu_boots:1,jingli:1000",
                      "下个奖励" : "3", ]),
@@ -330,56 +330,56 @@ mapping gift_list = ([
         "4"   :   ([ "达成条件" : "查看新闻",
                      "条件标识" : "newbie_mygift/news",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 news 查看游戏新闻",
+                     "条件描述" : "输入指令 " GRN "news" NOR HIC " 查看游戏新闻",
                      "奖励描述" : "/clone/goods/zhufu_head:1,/clone/gift/xisuidan:15",
                      "下个奖励" : "5", ]),
 
         "5"   :   ([ "达成条件" : "阅读文选",
                      "条件标识" : "newbie_mygift/wenxuan",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 wenxuan 显示年度文选信息",
+                     "条件描述" : "输入指令 " GRN "wenxuan" NOR HIC " 显示年度文选信息",
                      "奖励描述" : "/clone/goods/zhufu_waist:1,/clone/gift/shenliwan:15",
                      "下个奖励" : "6", ]),
 
         "6"   :   ([ "达成条件" : "查看 msg 功能",
                      "条件标识" : "newbie_mygift/msg",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 msg 显示最近收到的信息",
+                     "条件描述" : "输入指令 " GRN "msg" NOR HIC " 显示最近收到的信息",
                      "奖励描述" : "/clone/goods/zhufu_wrists:1,/clone/gift/unknowdan:15",
                      "下个奖励" : "7", ]),
 
         "7"   :   ([ "达成条件" : "查询新手导师",
                      "条件标识" : "newbie_mygift/who",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 who -v 显示所有的新手导师",
+                     "条件描述" : "输入指令 " GRN "who -v" NOR HIC " 显示所有的新手导师",
                      "奖励描述" : "/clone/goods/zhufu_surcoat:1,/clone/item/magicfruit:30",
                      "下个奖励" : "8", ]),
 
         "8"   :   ([ "达成条件" : "查询所有的附加属性",
                      "条件标识" : "newbie_mygift/istat",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 istat 显示所有的附加属性",
+                     "条件描述" : "输入指令 " GRN "istat" NOR HIC " 显示所有的附加属性",
                      "奖励描述" : "/clone/goods/zhufu_sword:1,quitsave:8035200,exp:100000,pot:50000",
                      "下个奖励" : "8s", ]),
 
         "8s"   :   ([ "达成条件" : "查询所有附加的buff",
                      "条件标识" : "newbie_mygift/stat",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 stat 显示所有的附加buff",
+                     "条件描述" : "输入指令 " GRN "stat" NOR HIC " 显示所有的附加buff",
                      "奖励描述" : "/clone/goods/zhufu_blade:1,tianfu:4,/adm/npc/obj/gift:1",
                      "下个奖励" : "9", ]),
 
         "9"   :   ([ "达成条件" : "了解能力点作用",
                      "条件标识" : "newbie_mygift/ability",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 help ability 了解能力点作用",
+                     "条件描述" : "输入指令 " GRN "help ability" NOR HIC " 了解能力点作用",
                      "奖励描述" : "jingli:500,neili:1000",
                      "下个奖励" : "9s", ]),
 
         "9s"   :   ([ "达成条件" : "了解天赋技能",
                      "条件标识" : "newbie_mygift/talent",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 talent 了解天赋技能",
+                     "条件描述" : "输入指令 " GRN "talent" NOR HIC " 了解天赋技能",
                      "奖励描述" : "jingli:500,neili:1000",
                      "下个奖励" : "10", ]),
 
@@ -420,21 +420,21 @@ mapping gift_list = ([
         "18"  :   ([ "达成条件" : "使用 chatroom 指令到公共聊天室",
                      "条件标识" : "newbie_mygift/chatroom",
                      "条件数值" : 1,
-                     "条件描述" : "使用指令 chatroom 到公共聊天室\n",
+                     "条件描述" : "使用指令 " GRN "chatroom" NOR HIC " 到公共聊天室\n",
                      "奖励描述" : "/clone/fam/gift/dex3:3",
                      "下个奖励" : "19", ]),
 
         "19"  :   ([ "达成条件" : "使用 recall back 回到扬州",
                      "条件标识" : "newbie_mygift/recall",
                      "条件数值" : 1,
-                     "条件描述" : "使用指令 recall back 回到扬州客店\n",
+                     "条件描述" : "使用指令 " GRN "recall back" NOR HIC " 回到扬州客店\n",
                      "奖励描述" : "neili:10000,jingli:5000",
                      "下个奖励" : "20", ]),
 
         "20"  :   ([ "达成条件" : "了解 bug 回报",
                      "条件标识" : "newbie_mygift/bug",
                      "条件数值" : 1,
-                     "条件描述" : "使用指令 help bug 了解bug回报\n",
+                     "条件描述" : "使用指令 " GRN "help bug" NOR HIC " 了解bug回报\n",
                      "奖励描述" : "/clone/medal/study-emblem:1",
                      "下个奖励" : "25", ]),
 
@@ -457,35 +457,35 @@ mapping gift_list = ([
         "31"  :   ([ "达成条件" : "了解游戏中的门派贡献商城",
                      "条件标识" : "newbie_mygift/fmstore",
                      "条件数值" : 1,
-                     "条件描述" : "使用指令 fmstore 了解\n",
+                     "条件描述" : "使用指令 " GRN "fmstore" NOR HIC " 了解\n",
                      "奖励描述" : "exp:10000,pot:10000",
                      "下个奖励" : "32", ]),
 
         "32"  :   ([ "达成条件" : "了解游戏中的军功兑换商城",
                      "条件标识" : "newbie_mygift/jgstore",
                      "条件数值" : 1,
-                     "条件描述" : "使用指令 jgstore 了解\n",
+                     "条件描述" : "使用指令 " GRN "jgstore" NOR HIC " 了解\n",
                      "奖励描述" : "exp:10000,pot:10000",
                      "下个奖励" : "33", ]),
 
         "33"  :   ([ "达成条件" : "了解游戏中的荣誉兑换商城",
                      "条件标识" : "newbie_mygift/rystore",
                      "条件数值" : 1,
-                     "条件描述" : "使用指令 rystore 了解\n",
+                     "条件描述" : "使用指令 " GRN "rystore" NOR HIC " 了解\n",
                      "奖励描述" : "exp:10000,pot:10000",
                      "下个奖励" : "34", ]),
 
         "34"  :   ([ "达成条件" : "了解游戏中的英雄商城",
                      "条件标识" : "newbie_mygift/ntstore",
                      "条件数值" : 1,
-                     "条件描述" : "使用指令 ntstore 了解\n",
+                     "条件描述" : "使用指令 " GRN "ntstore" NOR HIC " 了解\n",
                      "奖励描述" : "exp:10000,pot:10000",
                      "下个奖励" : "34s", ]),
 
         "34s"  :   ([ "达成条件" : "查询技能各种参数",
                      "条件标识" : "newbie_mygift/combat",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 combat 显示所有技能各种参数信息",
+                     "条件描述" : "输入指令 " GRN "combat" NOR HIC " 显示所有技能各种参数信息",
                      "奖励描述" : "neili:10000,jingli:5000",
                      "下个奖励" : "35", ]),
 
@@ -500,14 +500,14 @@ mapping gift_list = ([
         "40"  :   ([ "达成条件" : "查询技能绝招",
                      "条件标识" : "newbie_mygift/skill",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 skill lonely-sword 显示独孤九剑绝招信息",
+                     "条件描述" : "输入指令 " GRN "skill lonely-sword" NOR HIC " 显示独孤九剑绝招信息",
                      "奖励描述" : "neili:1000,gongxian:5000",
                      "下个奖励" : "40s", ]),
 
         "40s"  :   ([ "达成条件" : "查询技能战斗信息",
                      "条件标识" : "newbie_mygift/power",
                      "条件数值" : 1,
-                     "条件描述" : "输入指令 power 显示当前你激发的技能的命中、防御以及伤害信息",
+                     "条件描述" : "输入指令 " GRN "power" NOR HIC " 显示当前你激发的技能的命中、防御以及伤害信息",
                      "奖励描述" : "neili:1000,gongxian:5000",
                      "下个奖励" : "45", ]),
 
@@ -859,7 +859,7 @@ void give_mygift(object me, string s)
         set("newbie_mygift/cur_quest_number", s, me);
 
         // 提示
-        squest = HIR "【你获得新的辅助任务】 指令 " HIY "mygift" HIR" 查看当前辅助任务" + BLINK + HIC "    新任务" + NOR "\n" ;
+        squest = HIR "【你获得新的辅助任务】 指令 " HIY "mygift" HIR" 查看当前辅助任务" + BLINK + HIC "    新任务" + NOR + "\n" ;
         squest += mygift_string(gift_list[s]);
 
         tell_object(me, squest);

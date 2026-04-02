@@ -59,8 +59,8 @@ void greeting(object me)
         {
                 command("say "+query("name", me)+"，你快快选择(choose)好角色性格，然后投胎去吧！");
                 tell_object(me, CYN "特别提示：虽然性格对你拜哪个门派并没有影响，但是它会影响你学某些武功！\n" NOR);
-                tell_object(me, HIY "新手导师：请输入 help start 来获知针对各个门派所推荐的性格。(拜师之前可以在北京文庙调整性格)\n" NOR);
-                tell_object(me, "您可以选择(choose)的角色性格如下：\n"
+                tell_object(me, HIY "新手导师：请输入 help start 来获知针对各个门派所推荐的性格。(拜师之前可以在北京文庙调整性格)\n");
+                tell_object(me, NOR "您可以选择(choose)的角色性格如下：\n"
                             HIC " 1" NOR ".光明磊落  "
                             HIC "2" NOR ".狡黠多变  "
                             HIC "3" NOR ".心狠手辣  "

@@ -249,7 +249,7 @@ public varargs int show_goods(object me, string arg)
 
         msg += "\n";
         msg += HIG "请认真阅读有关说明，购买前请考虑清楚， 如无差错，恕不退货！\n" NOR;
-        msg += HIG "有关雪海商城的说明及购买雪海币($NT)的方式，请输入指令 help ntstore 查看。\n" NOR;
+        msg += HIG "有关雪海商城的说明及购买雪海币($NT)的方式，请输入指令 " GRN "help ntstore" NOR HIC HIG " 查看。\n" NOR;
         msg += HIG "------------------------------------------------------------------------------------------\n" NOR;
 
         buy_list = DB_D->query_data("ntstore/buylist");
@@ -486,7 +486,7 @@ public int buy_goods(object ob, string arg)
         }
 
         if( !MEMBER_D->is_member(ob) ) {
-                write("你还没有冲值，有关冲值方式，请输入指令 help store 查看。\n");
+                write("你还没有冲值，有关冲值方式，请输入指令 " GRN "help store" NOR HIC " 查看。\n");
                 return 1;
         }
 

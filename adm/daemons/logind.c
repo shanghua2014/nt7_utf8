@@ -1163,8 +1163,6 @@ void waiting_enter_world(object ob, object user)
 
         write(WHT "请输入任意键继续或 " HIR + WAITING_ENTER_TIME + NOR + WHT " 秒后自动进入游戏\n" NOR);
         set_temp("call_out_handle", call_out((:enter_world,ob,user,0,WAITING_ENTER_TIME:),1), ob);
-
-        input_to( (: enter_world, ob, user, 0, 1 :) );
 }
 
 varargs void enter_world(object ob, object user, int silent, int timer, string arg)
@@ -1189,14 +1187,21 @@ varargs void enter_world(object ob, object user, int silent, int timer, string a
         }
 
         if( timer && --timer ) {
-#ifdef LONELY_IMPROVED
-                remove_input_to(ob);
-#endif
                 write(TOTOP(1) + WHT "请输入任意键继续或 " HIR + timer + NOR + WHT " 秒后自动进入游戏\n" NOR);
                 set_temp("call_out_handle", call_out((:enter_world,ob,user,silent,timer:),1), ob);
-                input_to( (: enter_world, ob, user, silent, 1 :) );
                 return;
         }
+
+        // 防止重复执行登录逻辑
+        if( query_temp("entered_world", ob) ) {
+                return;
+        }
+        set_temp("entered_world", 1, ob);
+
+#ifdef LONELY_IMPROVED
+        // 清除可能残留的input_to，避免捕获用户输入的命令
+        remove_input_to(ob);
+#endif
 
         set_temp("link_ob", ob, user);
         set_temp("body_ob", user, ob);
@@ -1227,6 +1232,10 @@ varargs void enter_world(object ob, object user, int silent, int timer, string a
         }
 
         if( interactive(ob) ) exec(user, ob);
+#ifdef LONELY_IMPROVED
+        /* exec 后 body 上可能仍带 input_to，catch_tell 会进 msg_buffer 不立即显示，导致进房只见短名/提示 */
+        remove_input_to(user);
+#endif
         user->setup();
 
         if( query("age", ob) == 14 ) {
@@ -1364,12 +1373,17 @@ varargs void enter_world(object ob, object user, int silent, int timer, string a
                         write(color_filter(read_file(UNREG_MOTD)));
 
                 if( !catch(load_object(startroom)) )
-                        user->move(startroom);
+                        user->move(startroom, 1);  // 使用raw参数，不自动执行look
                 else {
                         startroom = START_ROOM;
-                        user->move(startroom);
+                        user->move(startroom, 1);  // 使用raw参数，不自动执行look
                         set("startroom", startroom, user);
                 }
+
+#ifdef LONELY_IMPROVED
+                // 清除可能残留的input_to，确保用户命令能够正常执行
+                remove_input_to(user);
+#endif
 
                 if( query("registered", user) )
                         write(color_filter(read_file(MOTD)));
@@ -1383,6 +1397,9 @@ varargs void enter_world(object ob, object user, int silent, int timer, string a
                         write(YEL "您所使用的连线软体未启动网路传输压缩("
                               HIY "MCCP" NOR YEL ")功能，建议您启动该功能让网路更加顺畅。\n" NOR);
 #endif
+
+                // 显示完活动列表后，自动发送look命令
+                LOOK_CMD->look_room(user, environment(user), 0, 1);
         }
 
         if( query("id", user) == "guest"){
