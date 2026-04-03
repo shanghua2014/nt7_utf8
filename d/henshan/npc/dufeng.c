@@ -55,7 +55,6 @@ string ask_eguidao()
 {
         object me;
         object ob_hlp;
-        int i;
         
         me = this_player();
         

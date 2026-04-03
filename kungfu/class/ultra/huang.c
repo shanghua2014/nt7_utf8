@@ -143,7 +143,6 @@ mixed ask_maze()
         object me;
         object ob;
         mapping quest;
-        mapping maze;
 
         me = this_player();
         ob = this_object();
@@ -520,12 +519,12 @@ int accept_object(object me, object ob)
 
 int give_quest()
 {
-    mapping quest,qgood,skills,robot_quest;
-    object me,target,thing,npc;
-    int i, giveup,tag,want,lev,lev1;
+    mapping quest,qgood;
+    object me,thing,npc;
+    int i, giveup,tag,want;
     int exp;
     int all_lvl,lvl;
-    string msg,*sname,place;
+    string msg;
     object maze_target;
     object maze_object;
 
@@ -645,8 +644,6 @@ int give_quest()
             NPC_D->random_move(npc);
             NPC_D->random_move(npc);
             */
-            place=query("place", npc);
-
             set("shen",query("combat_exp",  npc)/2000, npc);
             msg="黄裳忧心忡忡的说：“"+npc->name(1)+
                 "这个假仁假义的无耻之徒多次危害武林，听说他最近躲在迷宫中，你去除掉他吧！”\n";
@@ -727,7 +724,6 @@ int give_quest()
                 NPC_D->random_move(npc);
                 NPC_D->random_move(npc);
                 */
-                place=query("place", npc);
                 msg = hs_msg[random(5)]+npc->name(1)+"去年从武林同盟这里借走不少钱，地方分舵催讨多次不得，"
                         "听说他现在正在迷宫中，你去试试！\n如果也收不到钱，就收了他的"+quest["name"]+"。拿武林令要出示(chushi)一下。";
                 thing = new("/quest/quesths/wulin-ling");
@@ -754,7 +750,6 @@ int give_quest()
                 NPC_D->random_move(npc);
                 NPC_D->random_move(npc);
                 */
-                place=query("place", npc);
                 thing = new(quest["object"]);
                 set("send_to",query("id",  npc), thing);
                 set("send_from", query("id"), thing);
@@ -799,11 +794,11 @@ int give_quest()
 
 int accept_object(object me, object ob)
 {
-    int rank,exp,pot,score,times,i,tag,all_quest_hs,bonus;
+    int exp,pot,score,times,i,tag,all_quest_hs,bonus;
     mapping quest;
     object gold,who,obj;
     string msg;
-    int mar,weiwang,shen,quest_count;
+    int mar,weiwang,quest_count;
     int total_count;
     mixed special = 0;
     mixed money = 0;
@@ -1148,7 +1143,7 @@ int accept_object(object me, object ob)
 
 int give_up()
 {
-    object me,ob,obj;
+    object me,ob;
     int giveup,rank;
     mapping quest;
 

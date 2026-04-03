@@ -336,7 +336,7 @@ mapping query_action(object me, object weapon)
                 "damage_type" : random(2) ? "内伤" : "瘀伤",
         ]);
 }
-mixed hit_ob(object me, object victim, int damage_bonus)
+mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 {
         int lvl;
 
@@ -358,6 +358,7 @@ mixed hit_ob(object me, object victim, int damage_bonus)
                 return WHT "$n" WHT "硬承下$N" WHT "一掌，霎时全"
                        "身一颤，经脉受震，喷出一口鲜血！\n" NOR;
         }
+        return ::hit_ob(me, victim, damage_bonus, factor);
 }
 
 string exert_function_file(string func)

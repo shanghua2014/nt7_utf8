@@ -156,7 +156,6 @@ void get_subtype(string arg, object ob)
 void get_gender(string arg, object ob)
 {
         int n;
-        object warcraft;
 
         sscanf(arg, "%d", n);
 
@@ -346,7 +345,7 @@ int accept_object(object me, object ob)
 {
         string filename;
         string file;
-        object cruise_ob, xob;
+        object cruise_ob;
 
         if( query("id", ob) == "dizang zhishi" )
         {
@@ -493,7 +492,6 @@ int accept_object(object me, object ob)
 int check_legal_id(string id)
 {
         int i;
-        string *legalid;
         object ppl;
 
         i = strlen(id);
@@ -533,7 +531,6 @@ int check_legal_id(string id)
 int check_legal_name(string name, int max_len)
 {
         int i;
-        string  *legalname;             //not implemented..may add later
 
         i = strlen(name);
         if ((strlen(name) < 2) || (strlen(name) > max_len ))
@@ -551,7 +548,7 @@ int check_legal_name(string name, int max_len)
         return 1;
 }
 
-int attempt_apprentice(object ob)
+void attempt_apprentice(object ob)
 {
         command("say 滚！给我一边儿去！");
 }

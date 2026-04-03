@@ -151,8 +151,6 @@ int get_ready(object me)
 
 int get_finish(object me)
 {
-        object ob;
-
         if( query("gender", me) == "无性" )
         {
                 tell_object(me, "你演练完毕，只感气血上涌，看来自己阴阳不调，无法演练九阴神功。\n" NOR);
@@ -348,9 +346,10 @@ mixed valid_damage(object ob, object me, int damage, object weapon)
 }
 
 
-mixed hit_ob(object me, object victim, int damage_bonus)
+mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 {
-        if( query_temp("weapon", me))return 1;
+        if( query_temp("weapon", me))
+                return ::hit_ob(me, victim, damage_bonus, factor);
 
         if (me->is_busy()
            || random(2) == 0
@@ -369,7 +368,8 @@ mixed hit_ob(object me, object victim, int damage_bonus)
 
                 return random(2) ? HIR "$N" HIR "招式陡然一变，右手成爪，猛然间抓向$n" HIR "周身大穴。\n" NOR:
                                    HIR "$N" HIR "快步上前，全身真气贯于左手食指，猛地刺$n" HIR "胸口大穴！\n" NOR;
-        }        
+        }
+        return ::hit_ob(me, victim, damage_bonus, factor);
 }
 
 int difficult_level()

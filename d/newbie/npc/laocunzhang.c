@@ -1596,7 +1596,7 @@ int do_closeeye(string arg)
 
         me->save();
 
-        msg+= HIG "老村长说道：你现在到村口找花伯（指令 ask hua about 出村）吧，他会告诉你怎么出古村！\n";
+        msg+= HIG "老村长说道：你现在到村口找花伯（ask hua about 出村）吧，他会告诉你怎么出古村！\n";
         msg+= HIC "老村长嘱咐道：以后行走江湖你就得多加小心了！切记，凡事需忍让，不可与人多起争端！\n\n" NOR;
 
         tell_object(me, msg);

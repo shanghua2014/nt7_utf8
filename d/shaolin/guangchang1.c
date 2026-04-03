@@ -2,9 +2,8 @@
 inherit ROOM;
 
 void init();
-int close_gate();
-int do_open();
-int valid_leave();
+void close_gate();
+int valid_leave(object me, string dir);
 string look_gate();
 
 void create()
@@ -60,7 +59,7 @@ void init()
             add_action("do_knock", "knock");
 }
 
-int close_gate()
+void close_gate()
 {
             object room;
 
@@ -80,8 +79,6 @@ int close_gate()
                             message("vision", CYN "壮年僧人上前把大门关了起来。\n" NOR, room);
             } else
                 message("vision", "ERROR: gate not found(close).\n", room);
-
-            return 1;
 }
 
 int do_knock(string arg)

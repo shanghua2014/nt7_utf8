@@ -111,7 +111,6 @@ mixed ask_maze()
         object me;
         object ob;
         mapping quest;
-        mapping maze;
 
         me = this_player();
         ob = this_object();
@@ -221,8 +220,6 @@ int accept_hit(object me)
 
 int accept_fight(object me)
 {
-        object weapon;
-
         if( query("opinion/"MY_OPINION, me) == ULTRA_OPINION )
         {
                 message_vision(CYN "$N" CYN "对$n" CYN "道：“很"
@@ -343,12 +340,12 @@ void die()
 
 int give_quest()
 {
-    mapping questtemp,questkh,questkill,skills,robot_quest;
+    mapping questtemp,questkh,questkill;
     object ob,npc;
-    int time,level,i,lev,lev1;
+    int time,level,i;
     int exp;
     int lvl,all_lvl;
-    string msg,*sname,place;
+    string msg;
     object maze_target;
     object maze_object;
 
@@ -548,10 +545,10 @@ int give_quest()
 
 int accept_object(object who, object ob)
 {
-   int exp, pot,level,bonus,i,all_quest_kh;
+   int exp, pot,level,i,all_quest_kh;
    mapping questkh;
    object me,gold,obj;
-   int shen,mar,weiwang,score,quest_count;
+   int mar,weiwang,score,quest_count;
    int total_count;
    string msg;
    mixed special = 0;
@@ -795,7 +792,7 @@ int accept_object(object who, object ob)
 
 int give_up()
 {
-   object ob,obj,room;
+   object ob;
    mapping questkh;
 
    ob = this_player();

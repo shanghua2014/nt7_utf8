@@ -1,7 +1,7 @@
 // This program is a part of NITAN MudLIB
 
 mapping region_names = ([
-        "register" : "混沌届",
+        "register" : "轮回界",
         "baituo"   : "西域白驼山",
         "beijing"  : "北京城",
         "changan"  : "长安城",
@@ -86,8 +86,8 @@ mapping region_names = ([
 ]);
 
 mapping place = ([
-        "city"     : ({ 
-                "扬州郊外", ({ 
+        "city"     : ({
+                "扬州郊外", ({
                         "/d/city/jiaowai1",
                         "/d/city/jiaowai2",
                         "/d/city/jiaowai3",
@@ -102,8 +102,8 @@ mapping place = ([
                         "/d/city/jiaowai12",
                         "/d/city/jiaowai13"
                  }),}),
-        "guiyun"   : ({ 
-                "太湖一带", ({ 
+        "guiyun"   : ({
+                "太湖一带", ({
                         "/d/guiyun/shulin1",
                         "/d/guiyun/shulin2",
                         "/d/guiyun/shulin3",
@@ -113,8 +113,8 @@ mapping place = ([
                         "/d/guiyun/shanlu2",
                         "/d/guiyun/tiandi"
                  }),}),
-        "huanghe"   : ({ 
-                "黄河一带", ({ 
+        "huanghe"   : ({
+                "黄河一带", ({
                         "/d/huanghe/caodi1",
                         "/d/huanghe/caodi2",
                         "/d/huanghe/shulin1",
@@ -158,7 +158,7 @@ mapping place = ([
                  }),}),
 
         "guanwai"   : ({
-                "长白山上", ({ 
+                "长白山上", ({
                         "/d/guanwai/milin1",
                         "/d/guanwai/milin2",
                         "/d/guanwai/milin3",
@@ -179,7 +179,7 @@ mapping place = ([
                  }),}),
 
         "dali"      : ({
-                "大理郊外", ({ 
+                "大理郊外", ({
                         "/d/dali/atoubu",
                     "/d/dali/badidian",
                     "/d/dali/banshan",
@@ -277,7 +277,7 @@ mapping place = ([
 
 
         "foshan"   : ({
-                "佛山一带", ({ 
+                "佛山一带", ({
                         "/d/foshan/nanling",
                     "/d/foshan/road1",
                     "/d/foshan/road2",
@@ -445,7 +445,7 @@ mapping place = ([
                       "/d/qingcheng/zhuhezhuang",
                       "/d/qingcheng/zushidian"
                  }),}),
-        "lingzhou" : ({ 
+        "lingzhou" : ({
                 "灵州一带", ({ "/d/lingzhou/chiling",
                     "/d/lingzhou/dalu",
                     "/d/lingzhou/deling",
@@ -604,4 +604,3 @@ mapping place = ([
                     "/d/xueshan/tulu3"
                  }),}),
 ]);
-       

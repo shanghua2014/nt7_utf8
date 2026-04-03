@@ -584,14 +584,14 @@ string gift_desc(string arg)
 }
 
 // 显示任务描述
-string mygift_string(mapping mygift_map)
+string mygift_string(mapping mygift_map, string quest_number)
 {
         string squest;
 
         squest = HIC + LINE + "\n";
 
         squest += "【任务名称】：" + mygift_map["达成条件"] + "\n";
-        squest += "【达成条件】：" + mygift_map["条件描述"] + "\n";
+        squest += "【达成条件】：" + quest_number + "、" + mygift_map["条件描述"] + "\n";
         squest += HIY "【任务奖励】：" + gift_desc(mygift_map["奖励描述"]) + "\n";
         squest += HIC + LINE + "\n" NOR;
 
@@ -607,7 +607,7 @@ void give_mygift(object me, string s)
 
         // 提示
         squest = HIR "【你获得新的辅助任务】 指令 " HIY "mygift" HIR" 查看当前辅助任务" + BLINK + HIC "    新任务" + NOR + "\n" ;
-        squest += mygift_string(gift_list[s]);
+        squest += mygift_string(gift_list[s], s);
 
         tell_object(me, squest);
 
@@ -819,7 +819,7 @@ int mygift(object me, string arg)
                 if( !nquest=query("newbie_mygift/cur_quest_number", me) )
                         return notify_fail("你当前没有辅助任务信息！\n");
 
-                squest = mygift_string(gift_list[nquest]);
+                squest = mygift_string(gift_list[nquest], nquest);
 
                 squest = HIG "【当前辅助任务如下】\n" + squest;
 
@@ -837,7 +837,7 @@ int mygift(object me, string arg)
 
                 for( i = 0; i < sizeof(keys_gift_list); i ++ )
                 {
-                        squest += mygift_string(gift_list[keys_gift_list[i]]) + "\n";
+                        squest += mygift_string(gift_list[keys_gift_list[i]], keys_gift_list[i]) + "\n";
                 }
 
                 write(squest);

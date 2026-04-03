@@ -645,7 +645,6 @@ mixed ask_duanyu()
 mixed rescue_duanyu()
 {
         object me;
-        object *obj;
         int i, j;
         
         i =random(5)+2;

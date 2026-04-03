@@ -1455,6 +1455,31 @@ varargs void enter_world(object ob, object user, int silent, int timer, string a
         TOPTEN_D->topten_checkplayer(user);
         FESTIVAL_CMD->main(user);
 
+        // 检查玩家是否有辅助任务，如果有就显示任务信息
+        if( query("newbie_mygift/cur_quest_number", user) )
+        {
+                string nquest;
+                mapping tmap;
+
+                nquest = query("newbie_mygift/cur_quest_number", user);
+                tmap = MYGIFT_D->query_gift_list(nquest);
+
+                if( tmap )
+                {
+                        // 显示当前任务信息
+                        write(HIG "\n【当前辅助任务】\n" NOR);
+                        write(MYGIFT_D->mygift_string(tmap, nquest));
+
+                        // 检查任务是否完成
+                        MYGIFT_D->check_curgift(user);
+                }
+        }
+        else
+        {
+                // 如果没有任务，分配第一个任务
+                MYGIFT_D->give_mygift(user, "s1");
+        }
+
         if( mapp(marry=query("couple", user)) && !undefinedp(marry["couple_id"])){
                 string tmpstr, tmpstr1;
                 object couple_ob = find_player(marry["couple_id"]);

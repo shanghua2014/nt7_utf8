@@ -233,7 +233,7 @@ void reset()
         delete("memory");
 }
 
-int accept_object()
+int accept_object(object me, object ob)
 {
         return 1;
 }
